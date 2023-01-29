@@ -1,0 +1,76 @@
+@import 'style';
+
+a {
+  text-decoration: none !important;
+}
+
+.bg-yellow-green-yellow {
+  background: linear-gradient(90deg, #fbf5ae, #008037 30%, #ece76e 60%, #008037 70%, #ece76e) !important;
+}
+
+.ref-min-notice {
+  background-color: #383838;
+  background: linear-gradient(90deg, #fbf5ae, #008037 30%, #ece76e 60%, #008037 70%, #ece76e) !important;
+  border-radius: 7px;
+  color: #000 !important;
+  color: #fff;
+  font-size: 32px;
+  padding: 20px;
+  text-align: center;
+}
+
+.keypoints-fist {
+  background: url(../images/pay-opts.jpg);
+  border-radius: 10px;
+  color: #fff !important;
+  padding: 30px;
+}
+
+.pay-m ul li img {
+  margin-right: 10px;
+  width: 15px;
+}
+
+.btc-info {
+  align-items: center;
+  background-color: #008037;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  overflow: hidden;
+  padding: 30px;
+  position: relative;
+  transition: all .6s ease;
+}
+
+.btc-info:hover {
+  background-color: #232323;
+}
+
+.btc-info__img {
+  width: 23%;
+  z-index: 1;
+}
+
+.btc-info__con {
+  width: 77%;
+}
+
+.btc-info:before {
+  background-color: #008037;
+  border-radius: 50%;
+  content: "";
+  height: auto;
+  left: 0;
+  margin: auto;
+  padding-top: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-100%, -50%);
+  transition: all .6s ease;
+  width: 50%;
+}
+
+.btc-info:hover:before {
+  left: 25%;
+}
