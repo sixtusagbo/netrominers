@@ -1,39 +1,37 @@
 @extends('layouts.dash')
 
 @section('content')
-    <h1 class="app-page-title">Referrals</h1>
+    <h4>Your Referrals</h4>
 
     <div class="row g-4 mb-4">
         <div class="col-12 col-lg-12">
-            <div class="app-card h-100 shadow-sm">
-                <div class="app-card-header p-3">
+            <div class="card border-0 shadow">
+                <div class="card-header p-3 pb-0">
                     <div class="row justify-content-between align-items-center">
                         <div class="col-auto">
-                            <h4 class="app-card-title">
-                                Total Referrals
-                                ({{ Auth::user()->referrals->count() }})
-                            </h4>
+                            <h6 class="card-title">
+                                Total ({{ Auth::user()->referrals->count() }})
+                            </h6>
                         </div>
                         <!--//col-->
                         <div class="col-auto">
-                            <h4 class="app-card-title">
-                                Earned Commission
-                                (@money(Auth::user()->referrals->count() * 10))
-                            </h4>
+                            <h6 class="card-title">
+                                Earned Commission (@money(Auth::user()->referrals->count() * 10))
+                            </h6>
                         </div>
                         <!--//col-->
                     </div>
                     <!--//row-->
                 </div>
-                <!--//app-card-header-->
-                <div class="app-card-body p-3 p-lg-4">
+                <!--//card-header-->
+                <div class="card-body p-2">
                     <div class="table-responsive">
-                        <table class="table table-striped mb-0">
-                            <thead>
+                        <table class="table table-striped rounded">
+                            <thead class="thead-light">
                                 <tr>
-                                    <th class="meta">Name</th>
-                                    <th class="meta stat-cell">Email Address</th>
-                                    <th class="meta stat-cell">Referred on</th>
+                                    <th class="border-0 rounded-start">Name</th>
+                                    <th class="border-0">Email Address</th>
+                                    <th class="border-0 rounded-end">Referred on</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -45,9 +43,10 @@
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="4" class="bg-white">
-                                            <div class="alert alert-info text-center" role="alert">No referrals
-                                                yet</div>
+                                        <td colspan="3">
+                                            <div class="alert alert-info text-center p-2" role="alert">
+                                                No referrals yet
+                                            </div>
                                         </td>
                                     </tr>
                                 @endforelse
@@ -55,7 +54,7 @@
                         </table>
                     </div>
                 </div>
-                <!--//app-card-body-->
+                <!--//card-body-->
 
             </div>
         </div>
