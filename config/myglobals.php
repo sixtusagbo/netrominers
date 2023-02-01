@@ -1,5 +1,5 @@
 <?php return array (
-  'app_name' => 'NetroMiners',
+  'app_name' => 'Netrominers',
   'admin' => 
   array (
     'email' => NULL,
@@ -18,4 +18,9 @@
   'withdrawal_charge' => '0.00',
   'min_investment' => '100.00',
   'min_withdrawal' => '20.00',
+  'seo' => 
+  array (
+    'description' => 'We are Netrominers, a VN based company involved with trading in cryptocurrencies.',
+    'keywords' => 'netro, netromine, netrominers, crypto mining',
+  ),
 );

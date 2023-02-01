@@ -1,163 +1,294 @@
 @extends('layouts.dash')
 
 @section('content')
-    <h1 class="app-page-title">Overview</h1>
-
-    <div class="row g-4 mb-4 justify-content-center">
-        <div class="col-6 col-lg-4">
-            <div class="app-card app-card-stat shadow-sm h-100">
-                <div class="app-card-body p-3 p-lg-4">
-                    <h4 class="stats-type mb-1">Registration Date</h4>
-                    <div class="stats-figure">{{ Auth::user()->created_at->toFormattedDateString() }}</div>
-                    <div class="stats-meta text-success">
-                        <img src="{{ asset('images/auth/accountbox2.png') }}" alt="">
-                    </div>
+    <div class="row py-4">
+        <div class="col-12 col-xxl-4">
+            <div class="card border-0 shadow">
+                <div class="card-body text-center py-3 py-xl-3">
+                    <h3 class="display-3 fw-extrabold mb-0">@money(Auth::user()->account_balance)</h3>
+                    <p>{{ Auth::user()->username }}</p>
+                    <a href="{{ route('deposit') }}" class="btn btn-success d-inline-flex me-2 align-items-center">Deposit</a>
+                    <a href="{{ route('withdraw') }}" class="btn btn-secondary d-inline-flex align-items-center">Withdraw</a>
                 </div>
-                <!--//app-card-body-->
-                <a class="app-card-link-mask" href="#"></a>
             </div>
-            <!--//app-card-->
         </div>
-        <!--//col-->
-
-        <div class="col-6 col-lg-4">
-            <div class="app-card app-card-stat shadow-sm h-100">
-                <div class="app-card-body p-3 p-lg-4">
-                    <h4 class="stats-type mb-1">Last Access</h4>
-                    <div class="stats-figure">
-                        {{ Auth::user()->last_access ? Auth::user()->last_access->toDayDateTimeString() : Carbon\Carbon::now()->toDayDateTimeString() }}
-                    </div>
-                    <div class="stats-meta text-success">
-                        <img src="{{ asset('images/auth/accountbox3.png') }}" alt="">
-                    </div>
-                </div>
-                <!--//app-card-body-->
-                <a class="app-card-link-mask" href="#"></a>
-            </div>
-            <!--//app-card-->
-        </div>
-        <!--//col-->
-        <div class="col-6 col-lg-4">
-            <div class="app-card app-card-stat shadow-sm h-100">
-                <div class="app-card-body p-3 p-lg-4">
-                    <h4 class="stats-type mb-1">Your Ip</h4>
-                    <div class="stats-figure">{{ request()->getClientIp() }}</div>
-                    <div class="stats-meta text-success">
-                        <img src="{{ asset('images/auth/accountbox4.png') }}" alt="">
-                    </div>
-                </div>
-                <!--//app-card-body-->
-                <a class="app-card-link-mask" href="#"></a>
-            </div>
-            <!--//app-card-->
-        </div>
-        <!--//col-->
     </div>
-    <!--//row-->
-
-    <div class="row g-4 mb-4">
-        <div class="col-12 col-lg-12">
-            <div class="app-card h-100 shadow-sm">
-                <div class="app-card-header p-3">
-                    <div class="row justify-content-between align-items-center">
-                        <div class="col-auto">
-                            <h4 class="app-card-title">Referral Link</h4>
+    <div class="row">
+        <div class="col-12 col-sm-6 col-xl-4 mb-4">
+            <div class="card border-0 shadow bg-success">
+                <div class="card-body">
+                    <div class="row d-block d-xl-flex align-items-center">
+                        <div
+                            class="col-12 col-xl-5 text-xl-center mb-3 mb-xl-0 d-flex align-items-center justify-content-xl-center">
+                            <div class="icon-shape icon-shape-primary rounded me-4 me-sm-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                                    <path
+                                        d="M7.86 7H24.14l2-2.36a2 2 0 0 0-1.82-3.26l-2.14.3A10.64 10.64 0 0 1 18 1.47L16.24 1a1 1 0 0 0-.48 0L14 1.47a10.64 10.64 0 0 1-4.13.21l-2.14-.3A2 2 0 0 0 5.9 4.64zM30.92 27.34a.83.83 0 0 0 0-.15L23.49 9H18.07a2.17 2.17 0 0 0 .61 1.26A1 1 0 0 1 18 12a1.05 1.05 0 0 1-.68-.26A4.38 4.38 0 0 1 16.05 9H16a4.38 4.38 0 0 1-1.27 2.74A1.05 1.05 0 0 1 14 12a1 1 0 0 1-.68-1.74A2.17 2.17 0 0 0 13.93 9H8.51L1.12 27.19a.83.83 0 0 0 0 .15 2.9 2.9 0 0 0 .57 2.5A3.06 3.06 0 0 0 4.07 31H27.93a3.06 3.06 0 0 0 2.42-1.16A2.9 2.9 0 0 0 30.92 27.34zM17.2 19A1.81 1.81 0 0 1 19 20.8v2.4A1.81 1.81 0 0 1 17.2 25H17v.6a1 1 0 0 1-2 0V25H14a1 1 0 0 1 0-2h3V21H14.8A1.81 1.81 0 0 1 13 19.2V16.8A1.81 1.81 0 0 1 14.8 15H15v-.6a1 1 0 1 1 2 0V15h1a1 1 0 0 1 0 2H15v2z" />
+                                </svg>
+                            </div>
+                            <div class="d-sm-none">
+                                <h2 class="h5">T.Earning</h2>
+                                <h3 class="fw-extrabold mb-1">@money(Auth::user()->earnings)</h3>
+                            </div>
                         </div>
-                        <!--//col-->
-                    </div>
-                    <!--//row-->
-                </div>
-                <!--//app-card-header-->
-                <div class="app-card-body p-3 p-lg-4">
-                    <input type="text" class="form-control" readonly="readonly"
-                        value="{{ Auth::user()->referral_link }}">
-                </div>
-                <!--//app-card-body-->
-
-            </div>
-        </div>
-    </div>
-    <!--//row-->
-
-    <div class="row g-4 mb-4">
-        <div class="col-12 col-lg-12">
-            <div class="app-card h-100 shadow-sm">
-                <div class="app-card-header p-3">
-                    <div class="row justify-content-between align-items-center">
-                        <div class="col-auto">
-                            <h4 class="app-card-title">Deposit Statements</h4>
+                        <div class="col-12 col-xl-7 px-xl-0">
+                            <div class="d-none d-sm-block">
+                                <h2 class="h6 text-light-400 mb-0">T. Earning</h2>
+                                <h3 class="fw-extrabold mb-2">@money(Auth::user()->earnings)</h3>
+                            </div>
                         </div>
-                        <!--//col-->
                     </div>
-                    <!--//row-->
                 </div>
-                <!--//app-card-header-->
-                <div class="app-card-body p-3 p-lg-4">
-                    <div class="table-responsive">
-                        <table class="table table-borderless mb-0">
-                            <tbody>
-                                <tr>
-                                    <td>Active Deposit</td>
-                                    <td class="stat-cell">@money($total_deposits)</td>
-                                </tr>
-                                <tr>
-                                    <td>Last Deposit</td>
-                                    <td class="stat-cell">@money($last_deposit)</td>
-                                </tr>
-                                <tr>
-                                    <td>Total Deposit</td>
-                                    <td class="stat-cell">@money($total_deposits)</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <!--//table-responsive-->
-                </div>
-                <!--//app-card-body-->
-
             </div>
         </div>
-    </div>
-    <!--//row-->
-
-    <div class="row g-4 mb-4">
-        <div class="col-12 col-lg-12">
-            <div class="app-card h-100 shadow-sm">
-                <div class="app-card-header p-3">
-                    <div class="row justify-content-between align-items-center">
-                        <div class="col-auto">
-                            <h4 class="app-card-title">Withdrawal Statements</h4>
+        <div class="col-12 col-sm-6 col-xl-4 mb-4">
+            <div class="card border-0 shadow bg-purple">
+                <div class="card-body">
+                    <div class="row d-block d-xl-flex align-items-center">
+                        <div
+                            class="col-12 col-xl-5 text-xl-center mb-3 mb-xl-0 d-flex align-items-center justify-content-xl-center">
+                            <div class="icon-shape icon-shape-secondary rounded me-4 me-sm-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <g data-name="Layer 2">
+                                        <rect width="21.5" height="11.5" x="1.25" y="2.25" fill="#29b3ff"
+                                            rx="2.75" />
+                                        <path fill="#ffc545"
+                                            d="M18.5,7.25H5.5A.75.75,0,0,0,4.75,8V19A2.752,2.752,0,0,0,7.5,21.75h9A2.752,2.752,0,0,0,19.25,19V8A.75.75,0,0,0,18.5,7.25Z" />
+                                        <path fill="#fff"
+                                            d="M12,18.75a.744.744,0,0,1-.53-.22l-3-3a.75.75,0,0,1,1.06-1.06L12,16.939l2.47-2.469a.75.75,0,0,1,1.06,1.06l-3,3A.744.744,0,0,1,12,18.75Z" />
+                                        <path fill="#fff"
+                                            d="M12,18.75a.75.75,0,0,1-.75-.75V11a.75.75,0,0,1,1.5,0v7A.75.75,0,0,1,12,18.75Z" />
+                                        <path
+                                            d="M20,13.75H18.5a.75.75,0,0,1,0-1.5H20A1.252,1.252,0,0,0,21.25,11V5A1.252,1.252,0,0,0,20,3.75H4A1.252,1.252,0,0,0,2.75,5v6A1.252,1.252,0,0,0,4,12.25H5.5a.75.75,0,0,1,0,1.5H4A2.752,2.752,0,0,1,1.25,11V5A2.752,2.752,0,0,1,4,2.25H20A2.752,2.752,0,0,1,22.75,5v6A2.752,2.752,0,0,1,20,13.75Z" />
+                                        <path
+                                            d="M16.5,21.75h-9A2.752,2.752,0,0,1,4.75,19V7a.75.75,0,0,1,.75-.75h13a.75.75,0,0,1,.75.75V19A2.752,2.752,0,0,1,16.5,21.75ZM6.25,7.75V19A1.252,1.252,0,0,0,7.5,20.25h9A1.252,1.252,0,0,0,17.75,19V7.75Z" />
+                                        <path d="M19.5,7.75H4.5a.75.75,0,0,1,0-1.5h15a.75.75,0,0,1,0,1.5Z" />
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="d-sm-none">
+                                <h2 class="fw-extrabold h5">T. Withdrawal</h2>
+                                <h3 class="mb-1">@money($total_withdrawals)</h3>
+                            </div>
                         </div>
-                        <!--//col-->
+                        <div class="col-12 col-xl-7 px-xl-0">
+                            <div class="d-none d-sm-block">
+                                <h2 class="h6 text-light-400 mb-0">T. Withdrawal</h2>
+                                <h3 class="fw-extrabold mb-2">@money($total_withdrawals)</h3>
+                            </div>
+                        </div>
                     </div>
-                    <!--//row-->
                 </div>
-                <!--//app-card-header-->
-                <div class="app-card-body p-3 p-lg-4">
-                    <div class="table-responsive">
-                        <table class="table table-borderless mb-0">
-                            <tbody>
-                                <tr>
-                                    <td>Pending Withdrawal</td>
-                                    <td class="stat-cell">@money(Auth::user()->pending_withdrawals)</td>
-                                </tr>
-                                <tr>
-                                    <td>Last Withdrawal</td>
-                                    <td class="stat-cell">@money($last_withdrawal)</td>
-                                </tr>
-                                <tr>
-                                    <td>Withdrew Total</td>
-                                    <td class="stat-cell">@money($total_withdrawals)</td>
-                                </tr>
-                            </tbody>
-                        </table>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-xl-4 mb-4">
+            <div class="card border-0 shadow bg-secondary">
+                <div class="card-body">
+                    <div class="row d-block d-xl-flex align-items-center">
+                        <div
+                            class="col-12 col-xl-5 text-xl-center mb-3 mb-xl-0 d-flex align-items-center justify-content-xl-center">
+                            <div class="icon-shape icon-shape-tertiary rounded me-4 me-sm-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 64 64">
+                                    <rect width="54" height="46" x="2" y="14" fill="#b4f78d"
+                                        rx="3" />
+                                    <rect width="22" height="18" x="40" y="28" fill="#fff"
+                                        rx="3" />
+                                    <path fill="#fff"
+                                        d="M11,4H47a3,3,0,0,1,3,3v7a0,0,0,0,1,0,0H8a0,0,0,0,1,0,0V7A3,3,0,0,1,11,4Z" />
+                                    <path
+                                        d="M61.98,30.69A2.98787,2.98787,0,0,0,59,28H56V17a3.00224,3.00224,0,0,0-3-3H50V7a1.61351,1.61351,0,0,0-.02-.31A2.98787,2.98787,0,0,0,47,4H11A2.996,2.996,0,0,0,8,7,1.003,1.003,0,0,1,9,6H45a1.003,1.003,0,0,1,1,1v5H8v2H5a2.996,2.996,0,0,0-3,3,1.003,1.003,0,0,1,1-1H51a1.003,1.003,0,0,1,1,1v9H41a5.00181,5.00181,0,0,0-5,5V43a5.00181,5.00181,0,0,0,5,5H52v9a1.003,1.003,0,0,1-1,1H3a1.003,1.003,0,0,1-1-1,2.996,2.996,0,0,0,3,3H53a3.00236,3.00236,0,0,0,3-3V48a5.18072,5.18072,0,0,0,6-5C61.97955,42.62357,62.039,31.05351,61.98,30.69ZM58,43a1.003,1.003,0,0,1-1,1H41a1.003,1.003,0,0,1-1-1V31a1.003,1.003,0,0,1,1-1H57a1.003,1.003,0,0,1,1,1Z"
+                                        opacity=".1" />
+                                    <path
+                                        d="M46 35a2.0002 2.0002 0 0 0 .00006 4A2.0002 2.0002 0 0 0 46 35zM13 35h6a2.00021 2.00021 0 0 0-.00006-4H16V30a2.00021 2.00021 0 0 0-4 .00006v1.09027C4.843 32.44916 5.66583 42.82935 13.00012 43H15a2.00022 2.00022 0 0 1-.00009 4H9a2.00021 2.00021 0 0 0 .00006 4H12v1a2.00021 2.00021 0 0 0 4-.00012V50.90967C23.15558 49.55255 22.33521 39.17029 14.99988 39H13A2.00022 2.00022 0 0 1 13 35z"
+                                        opacity=".1" />
+                                    <path fill="#4d4d4d"
+                                        d="M59,26H58V17a5.16386,5.16386,0,0,0-6-5V7a5.00588,5.00588,0,0,0-5-5H11A5.00588,5.00588,0,0,0,6,7v5a5.16434,5.16434,0,0,0-6,5.0001L0,57a5.00588,5.00588,0,0,0,5,5H53a5.00588,5.00588,0,0,0,5-5V48a5.1637,5.1637,0,0,0,6-5.00009L64,31A5.00588,5.00588,0,0,0,59,26ZM10,7a1.001,1.001,0,0,1,1-1H47a1.001,1.001,0,0,1,1,1v5H10ZM54,57a1.001,1.001,0,0,1-1,1H5a1.001,1.001,0,0,1-1-1V17a1.001,1.001,0,0,1,1-1H53a1.001,1.001,0,0,1,1,1v9H43a5.00588,5.00588,0,0,0-5,5V43a5.00588,5.00588,0,0,0,5,5H54Zm6-14a1.001,1.001,0,0,1-1,1H43a1.001,1.001,0,0,1-1-1V31a1.001,1.001,0,0,1,1-1H59a1.001,1.001,0,0,1,1,1Z" />
+                                    <path fill="#4d4d4d"
+                                        d="M48 35a2.0002 2.0002 0 0 0 .00008 4A2.0002 2.0002 0 0 0 48 35zM15 35h6a2.00021 2.00021 0 0 0-.00009-4H18V30a2.00021 2.00021 0 0 0-4 .00008v1.09025C6.843 32.44916 7.66585 42.82937 15.00012 43H17a2 2 0 0 1 0 4H11a2.00021 2.00021 0 0 0 .00009 4H14v1a2.00021 2.00021 0 0 0 4-.00008V50.90967C25.15556 49.55254 24.33522 39.17028 16.99988 39H15A2.00022 2.00022 0 0 1 15 35z" />
+                                </svg>
+                            </div>
+                            <div class="d-sm-none">
+                                <h2 class="fw-extrabold h5">T. Deposit</h2>
+                                <h3 class="mb-1">@money($total_deposits)</h3>
+                            </div>
+                        </div>
+                        <div class="col-12 col-xl-7 px-xl-0">
+                            <div class="d-none d-sm-block">
+                                <h2 class="h6 text-light-400 mb-0">T. Deposit</h2>
+                                <h3 class="fw-extrabold mb-2">@money($total_deposits)</h3>
+                            </div>
+                        </div>
                     </div>
-                    <!--//table-responsive-->
                 </div>
-                <!--//app-card-body-->
+            </div>
+        </div>
 
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-xl-12">
+            <div class="row">
+                <div class="col-12 mb-4">
+                    <div class="card border-0 shadow">
+                        <div class="card-header">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <h2 class="fs-5 fw-bold mb-0">Account Details</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-centered table-nowrap mb-0 rounded">
+                                    <tbody>
+                                        <!-- Item -->
+                                        <tr>
+                                            <td class="fw-bold d-flex align-items-center">
+                                                <svg class="icon icon-xs me-1" fill="currentColor"
+                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                    <path
+                                                        d="M12,1A11,11,0,1,0,23,12,11,11,0,0,0,12,1Zm4,12H12a1,1,0,0,1-1-1V6a1,1,0,0,1,2,0v5h3a1,1,0,0,1,0,2Z" />
+                                                </svg>
+                                                Registered
+                                            </td>
+                                            <td>
+                                                {{ Auth::user()->created_at->toFormattedDateString() }}
+                                            </td>
+                                        </tr>
+                                        <!-- End of Item -->
+
+                                        <!-- Item -->
+                                        <tr>
+                                            <td class="fw-bold d-flex align-items-center">
+                                                <svg class="icon icon-xs me-1" fill="currentColor"
+                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                                                    <path
+                                                        d="M34.05 50 9 66.31V33.69L34.05 50zm31.9 0L91 66.31V33.69L65.95 50zm-3.66 2.39-11.2 7.29c-.33.21-.71.32-1.09.32s-.76-.11-1.09-.32l-11.2-7.29L10.66 70l-1.57 1.02C9.58 73.84 12.04 76 15 76h70c2.96 0 5.42-2.15 5.91-4.98L89.33 70 62.29 52.39zM50 55.61 89.33 30l1.58-1.02C90.42 26.15 87.96 24 85 24H15c-2.96 0-5.42 2.16-5.91 4.98L10.66 30 50 55.61z" />
+                                                </svg>
+                                                Email
+                                            </td>
+                                            <td>
+                                                {{ Auth::user()->email }}
+                                            </td>
+                                        </tr>
+                                        <!-- End of Item -->
+
+                                        <!-- Item -->
+                                        <tr>
+                                            <td class="fw-bold d-flex align-items-center">
+                                                <svg class="icon icon-xs me-1" fill="currentColor"
+                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                    <path
+                                                        d="M21,2H15a1,1,0,0,0,0,2h5V9a1,1,0,0,0,2,0V3A1,1,0,0,0,21,2Zm0,12a1,1,0,0,0-1,1v5H15a1,1,0,0,0,0,2h6a1,1,0,0,0,1-1V15A1,1,0,0,0,21,14ZM12,6A3,3,0,0,0,9,9v1a2,2,0,0,0-2,2v4a2,2,0,0,0,2,2h6a2,2,0,0,0,2-2V12a2,2,0,0,0-2-2V9A3,3,0,0,0,12,6ZM11,9a1,1,0,0,1,2,0v1H11Zm4,7H9V12h6ZM3,10A1,1,0,0,0,4,9V4H9A1,1,0,0,0,9,2H3A1,1,0,0,0,2,3V9A1,1,0,0,0,3,10ZM9,20H4V15a1,1,0,0,0-2,0v6a1,1,0,0,0,1,1H9a1,1,0,0,0,0-2Z" />
+                                                </svg>
+                                                Last Access
+                                            </td>
+                                            <td>
+                                                {{ Auth::user()->last_access ? Auth::user()->last_access : Carbon\Carbon::now() }}
+                                            </td>
+                                        </tr>
+                                        <!-- End of Item -->
+
+                                        <!-- Item -->
+                                        <tr>
+                                            <td class="fw-bold d-flex align-items-center">
+                                                <svg class="icon icon-xs me-1" fill="currentColor"
+                                                    xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 64 64"
+                                                    viewBox="0 0 64 64">
+                                                    <path fill="#2a2f64"
+                                                        d="M32.01 35.15c3.74 0 7.42-6.08 7.42-12.27 0-6.46-4.04-7.82-7.42-7.82-3.4 0-7.42 1.36-7.42 7.82C24.59 29.07 28.26 35.15 32.01 35.15zM44.45 39.76c-1.56-.48-3.39-1.26-5.41-2.32-.96-.52-1.98-1.09-3.01-1.71-1.2.93-2.56 1.48-4.02 1.48-1.46 0-2.82-.55-4.03-1.48-.8.49-1.84 1.1-3.02 1.71-.55.29-1.08.55-1.58.79-1.41.67-2.68 1.18-3.82 1.53-4.14 1.29-5.19 6.83-5.44 9.17h35.77C49.63 46.6 48.6 41.06 44.45 39.76zM50.91 34.22c.76 0 1.5-.35 2.18-.95.03-.02.05-.05.08-.07 1.71-1.57 3.02-4.71 3.02-7.9 0-4.62-2.88-5.59-5.29-5.59-2.42 0-5.3.97-5.3 5.59 0 3.2 1.33 6.36 3.05 7.92C49.37 33.84 50.14 34.22 50.91 34.22zM60.16 38.18c-1.16-.35-2.49-.92-4.1-1.75-.82-.43-1.55-.86-2.12-1.2-.91.66-1.94 1.06-3.02 1.06-1.1 0-2.12-.39-3.03-1.06-.71.43-1.42.84-2.12 1.2-.68.36-1.33.67-1.93.93.43.17.84.3 1.23.42 3.36 1.05 5.1 4.01 6 6.75H64C63.77 42.7 62.95 39.06 60.16 38.18zM10.91 33.26c.68.6 1.43.95 2.18.95.77 0 1.53-.36 2.23-.98.02-.02.03-.03.04-.04 1.72-1.57 3.03-4.71 3.03-7.9 0-4.62-2.88-5.59-5.3-5.59-2.41 0-5.29.97-5.29 5.59 0 3.18 1.3 6.32 3.01 7.89C10.85 33.21 10.88 33.23 10.91 33.26zM18.95 37.79c.39-.11.81-.26 1.23-.42-.6-.27-1.24-.58-1.94-.93-.82-.42-1.54-.85-2.12-1.2-.91.66-1.93 1.06-3.02 1.06s-2.11-.39-3.02-1.06c-.54.33-1.27.76-2.13 1.2-1.58.83-2.93 1.4-4.08 1.75C1.06 39.06.24 42.7 0 44.54h12.94C13.84 41.79 15.58 38.83 18.95 37.79z" />
+                                                </svg>
+                                                Referral link
+                                            </td>
+                                            <td>
+                                                <a class="link-indigo"
+                                                    href="{{ Auth::user()->referral_link }}">{{ Auth::user()->referral_link }}</a>
+                                            </td>
+                                        </tr>
+                                        <!-- End of Item -->
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 mb-4">
+                    <div class="card border-0 shadow">
+                        <div class="card-header">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <h2 class="fs-5 fw-bold mb-0">Latest Transactions</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-centered table-nowrap mb-0 rounded">
+                                    <tbody>
+                                        <!-- Item -->
+                                        <tr>
+                                            <td class="fw-bold d-flex align-items-center">
+                                                <svg class="icon icon-xs me-1" fill="currentColor"
+                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                    <path fill-rule="nonzero"
+                                                        d="M132.84 274.05l-55.94 0 0 93.37 358.2 0 0 -93.37 -55.94 0 0 40.68 23.81 0c7.9,0 7.9,12 0,12l-293.94 0c-7.9,0 -7.9,-12 0,-12l23.81 0 0 -40.68zm139.98 174.2l0 -49.31 -33.64 0 0 49.31c0,7.69 -9.56,6 -16.59,6l33.41 42.11 33.41 -42.11c-7.03,0 -16.59,1.69 -16.59,-6zm12 -55.31l0 49.31 16.99 0 0 0.02c4.87,-0.01 7.84,5.74 4.69,9.71l-46.77 58.71c-2.59,2.06 -6.36,1.63 -8.42,-0.96l-45.59 -57.48c-3.58,-4.24 -0.43,-10 4.47,-10l16.99 0 0 -49.31c0,-3.31 2.69,-6 6,-6l45.64 0c3.31,0 6,2.69 6,6zm82.34 -330.65c-26.48,-2.79 -47.5,-23.82 -50.29,-50.29l-121.74 0c-2.79,26.47 -23.82,47.5 -50.29,50.29l0 252.44 222.32 0 0 -252.44zm-38.21 -50.29c2.67,19.84 18.37,35.54 38.21,38.21l0 -38.21 -38.21 0zm-184.11 38.21c19.84,-2.67 35.54,-18.37 38.21,-38.21l-38.21 0 0 38.21zm185.4 86.81c0,65.93 -80.08,99.15 -126.73,52.5 -46.66,-46.66 -13.43,-126.73 52.49,-126.73 41,0 74.24,33.24 74.24,74.23zm-30.23 44.01c39.11,-39.11 11.26,-106.24 -44.01,-106.24 -55.27,0 -83.12,67.13 -44.01,106.24 24.31,24.31 63.71,24.31 88.02,0zm-62.86 -68.86c7.9,0 7.9,12 0,12 -11.47,0 -17.13,13.92 -9.1,21.95l0.01 -0.01c5.03,5.02 13.18,5.01 18.19,0.01l-0.01 -0.01c7.34,-7.34 -0.18,-15.44 11.04,-26.66 13.7,-13.7 37.02,-7.05 41.67,11.51 4.56,0 12.62,-1.17 12.62,6 0,7.17 -8.04,6 -12.59,6 -4.56,18.6 -30.13,24.75 -30.13,12.91 0,-8.38 9.02,-3.7 15.09,-9.76 11.86,-11.86 -6.13,-30.22 -18.18,-18.17 -7.34,7.34 0.18,15.43 -11.04,26.65l-0.01 -0.01c-9.73,9.73 -25.43,9.71 -35.13,0.01l0.01 -0.01c-3.16,-3.16 -5.47,-7.15 -6.57,-11.62 -4.55,0 -12.59,1.17 -12.59,-6 0,-7.17 8.06,-6 12.62,-6 2.75,-10.89 12.57,-18.79 24.1,-18.79zm142.01 149.88l61.94 0c3.31,0 6,2.68 6,6l0 105.37c0,3.31 -2.69,6 -6,6l-370.2 0c-3.31,0 -6,-2.69 -6,-6l0 -105.37c0,-3.32 2.69,-6 6,-6l61.94 0 0 -256.05c0,-3.31 2.69,-6 6,-6 78.11,0 156.21,0 234.32,0 3.31,0 6,2.69 6,6l0 256.05z" />
+                                                </svg>
+                                                Active Deposit
+                                            </td>
+                                            <td>
+                                                @money($total_deposits)
+                                            </td>
+                                        </tr>
+                                        <!-- End of Item -->
+
+                                        <!-- Item -->
+                                        <tr>
+                                            <td class="fw-bold d-flex align-items-center">
+                                                <svg class="icon icon-xs me-1" fill="currentColor"
+                                                    xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24"
+                                                    viewBox="0 0 24 24">
+                                                    <path
+                                                        d="M14.5 9.75c0-.5527-.4478-1-1-1h-.5505C12.8363 8.3218 12.4636 8 12 8c-.4859 0-.8719.3533-.9622.8129C10.158 9.0358 9.5 9.8729 9.5 10.875c0 1.1719.897 2.125 2 2.125l.9541-.0117C12.4639 12.9951 12.5 13.04 12.5 13.125c0 .0771-.0298.1211-.0083.125H10.5c-.5522 0-1 .4473-1 1s.4478 1 1 1h.5505C11.1637 15.6782 11.5364 16 12 16c.486 0 .8719-.3533.9622-.813C13.842 14.9641 14.5 14.1271 14.5 13.125c0-1.1719-.897-2.125-2-2.125l-.9541.0117C11.5361 11.0049 11.5 10.96 11.5 10.875c0-.0771.0298-.1211.0083-.125H13.5C14.0522 10.75 14.5 10.3027 14.5 9.75zM17 13h1c.5522 0 1-.4473 1-1s-.4478-1-1-1h-1c-.5522 0-1 .4473-1 1S16.4478 13 17 13zM6 11c-.5522 0-1 .4473-1 1s.4478 1 1 1h1c.5522 0 1-.4473 1-1s-.4478-1-1-1H6z" />
+                                                    <path
+                                                        d="M18,5H6C3.7944,5,2,6.7939,2,9v6c0,2.2061,1.7944,4,4,4h8c0.5522,0,1-0.4473,1-1s-0.4478-1-1-1H6c-1.103,0-2-0.8975-2-2V9
+                                              c0-1.1025,0.897-2,2-2h12c1.103,0,2,0.8975,2,2v5c0,0.5527,0.4478,1,1,1s1-0.4473,1-1V9C22,6.7939,20.2056,5,18,5z" />
+                                                    <path
+                                                        d="M21,17h-1v-1c0-0.5527-0.4478-1-1-1s-1,0.4473-1,1v1h-1c-0.5522,0-1,0.4473-1,1s0.4478,1,1,1h1v1c0,0.5527,0.4478,1,1,1
+                                              s1-0.4473,1-1v-1h1c0.5522,0,1-0.4473,1-1S21.5522,17,21,17z" />
+                                                </svg>
+                                                Email
+                                            </td>
+                                            <td>
+                                                @money($last_deposit)
+                                            </td>
+                                        </tr>
+                                        <!-- End of Item -->
+
+                                        <!-- Item -->
+                                        <tr>
+                                            <td class="fw-bold d-flex align-items-center">
+                                                <svg class="icon icon-xs me-1" fill="currentColor"
+                                                    xmlns="http://www.w3.org/2000/svg" data-name="Layer 1"
+                                                    viewBox="0 0 512 512">
+                                                    <path
+                                                        d="M489.5,0H22.5A22.52,22.52,0,0,0,0,22.5v30A22.52,22.52,0,0,0,22.5,75H60V189.5A37.54,37.54,0,0,0,97.5,227h96a32.76,32.76,0,0,0,9.85,20.18l15.88,15.3L201.3,302.81a88,88,0,0,0-7.63,35.94v97.09a23.64,23.64,0,0,0-23.48,23.62l0,45a7.51,7.51,0,0,0,7.5,7.5h0a7.49,7.49,0,0,0,7.49-7.5l0-45a8.56,8.56,0,0,1,2.53-6.09,8.65,8.65,0,0,1,6.14-2.53h0l106.87,0h11.79a8.67,8.67,0,0,1,8.68,8.63v45a7.51,7.51,0,0,0,7.5,7.5h0a7.49,7.49,0,0,0,7.49-7.5v-45a23.69,23.69,0,0,0-23.68-23.62h-4.16V416.53a76.32,76.32,0,0,1,7.06-31.95L333.34,346a90.35,90.35,0,0,0,7.13-53.78L329.4,227h85.1A37.54,37.54,0,0,0,452,189.5V75h37.5A22.52,22.52,0,0,0,512,52.5v-30A22.52,22.52,0,0,0,489.5,0ZM97.5,212A22.52,22.52,0,0,1,75,189.5v-22A52.61,52.61,0,0,1,119.46,212Zm37.07,0A67.6,67.6,0,0,0,75,152.43V104.57A67.6,67.6,0,0,0,134.57,45h76.12a83.1,83.1,0,0,0-13.2,10.75A82.75,82.75,0,0,0,239.9,195.43L235.34,212ZM75,89.46V45h44.46A52.61,52.61,0,0,1,75,89.46ZM256,46.51a67.76,67.76,0,0,1,21,132.16,26.2,26.2,0,0,0-28.09,3A67.75,67.75,0,0,1,256,46.51ZM213.73,236.38a17.51,17.51,0,0,1-5.11-9.38H231.2l-5.7,20.7Zm106,103.29-17.92,38.59a91.48,91.48,0,0,0-8.46,38.27v19.33l-84.69,0V338.75A73.1,73.1,0,0,1,215,308.9l24-54a7.69,7.69,0,0,0,.37-1.05l15.09-54.75a11.22,11.22,0,0,1,17.25-6.23l.17.12a10.9,10.9,0,0,1,2.37,2.33,11.1,11.1,0,0,1,2.14,8.44l-8.27,54.83a7.47,7.47,0,0,0-.07,1.42l2,49.39a7.5,7.5,0,0,0,15-.61l-2-48.67L288,227h26.15l11.5,67.75A75.55,75.55,0,0,1,319.74,339.67ZM437,189.5A22.52,22.52,0,0,1,414.5,212h-22A52.61,52.61,0,0,1,437,167.54Zm0-37.07A67.6,67.6,0,0,0,377.43,212H290.3l.9-6a25.94,25.94,0,0,0-2.52-15.73,83.15,83.15,0,0,0,25.83-17.54,82.72,82.72,0,0,0,0-117A83.1,83.1,0,0,0,301.31,45h76.12A67.6,67.6,0,0,0,437,104.57Zm0-63A52.61,52.61,0,0,1,392.54,45H437Zm60-37a7.5,7.5,0,0,1-7.5,7.5H452V45h13.77a7.5,7.5,0,0,0,0-15H46.23a7.5,7.5,0,1,0,0,15H60V60H22.5A7.5,7.5,0,0,1,15,52.5v-30A7.5,7.5,0,0,1,22.5,15h467a7.5,7.5,0,0,1,7.5,7.5Zm-391,70a7.5,7.5,0,1,0,7.5,7.5A7.5,7.5,0,0,0,106,122.5Zm300,15a7.5,7.5,0,1,0-7.5-7.5A7.5,7.5,0,0,0,406,137.5ZM247.74,113.65H229.25a7.49,7.49,0,0,0-6,12.83l41.6,40.41a7.5,7.5,0,0,0,10.45-10.75L247,128.65h.71A30.74,30.74,0,0,0,277.56,105h6.14a7.5,7.5,0,0,0,0-15h-6.33a30.74,30.74,0,0,0-3.31-7.86h9.64a7.5,7.5,0,0,0,0-15H228.82a7.5,7.5,0,0,0,0,15h18.92A15.63,15.63,0,0,1,261.27,90H228.82a7.5,7.5,0,0,0,0,15h32.86A15.64,15.64,0,0,1,247.74,113.65Z" />
+                                                </svg>
+                                                Pending Withdrawal
+                                            </td>
+                                            <td>
+                                                @money(Auth::user()->pending_withdrawals)
+                                            </td>
+                                        </tr>
+                                        <!-- End of Item -->
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <!--//row-->
 @endsection

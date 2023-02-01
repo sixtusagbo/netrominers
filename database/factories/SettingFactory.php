@@ -17,7 +17,9 @@ class SettingFactory extends Factory
     public function definition()
     {
         return [
-            'app_name' => 'NetroMiners',
+            'app_name' => 'Netrominers',
+            'description' => 'We are Netrominers, a VN based company involved with trading in cryptocurrencies.',
+            'keywords' => 'netro, netromine, netrominers, crypto mining',
             'email' => 'support@netrominers.com',
             'admin_email' => null,
             'currency' => '$',

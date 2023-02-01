@@ -16,6 +16,8 @@ return new class extends Migration
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
             $table->string('app_name');
+            $table->string('description');
+            $table->string('keywords');
             $table->string('email')->nullable();
             $table->string('admin_email')->nullable();
             $table->string('facebook')->nullable();

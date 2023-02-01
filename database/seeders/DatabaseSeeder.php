@@ -18,8 +18,13 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::factory()->create([
             'name' => 'Sixtus Agbo',
             'username' => 'sixtusagbo',
+            'email' => 'sixtusagbo211@gmail.com',
+        ]);
+
+        \App\Models\User::factory()->unverified()->create([
+            'name' => 'Sixto Mimi',
+            'username' => 'sixtuso',
             'email' => 'mail.mirolic@gmail.com',
-            'email_verified_at' => null
         ]);
 
         if (App::environment('local')) {

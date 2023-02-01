@@ -63,6 +63,19 @@ class SettingServiceProvider extends ServiceProvider
             'withdrawal_charge' => $settings->withdrawal_charge, // In percent
             'min_investment' => $settings->min_investment,
             'min_withdrawal' => $settings->min_withdrawal,
+
+            /*
+          |--------------------------------------------------------------------------
+          | Search Engine Optimization (SEO)
+          |--------------------------------------------------------------------------
+          |
+          | This option controls the seo settings of the app
+          |
+          */
+            'seo' => [
+                'description' => $settings->description,
+                'keywords' => $settings->keywords,
+            ]
         ];
 
         $fp = fopen(base_path('config/myglobals.php'), 'w');
