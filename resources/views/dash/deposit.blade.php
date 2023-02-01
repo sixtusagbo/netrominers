@@ -1,7 +1,7 @@
 @extends('layouts.dash')
 
 @section('content')
-    <h4 class="app-page-title">Make A Deposit</h4>
+    <h4>Make A Deposit</h4>
 
     <div class="d-grid mb-2">
         <button class="btn-secondary rounded" disabled>Select Plan:</button>
