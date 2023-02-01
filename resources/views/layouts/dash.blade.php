@@ -271,6 +271,7 @@
     <script src="{{ asset('vendor/notyf/notyf.min.js') }}"></script>
     <script src="{{ asset('vendor/simplebar/dist/simplebar.min.js') }}"></script>
     <script src="{{ asset('js/dash.js') }}"></script>
+    @yield('script')
 </body>
 
 </html>

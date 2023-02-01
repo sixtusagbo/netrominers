@@ -1,7 +1,11 @@
 @extends('layouts.dash')
 
 @section('content')
-    <h1 class="app-page-title">Make A Deposit</h1>
+    <h4 class="app-page-title">Make A Deposit</h4>
+
+    <div class="d-grid mb-2">
+        <button class="btn-secondary rounded" disabled>Select Plan:</button>
+    </div>
 
     @if (session('success'))
         <div class="alert alert-success" role="alert">
@@ -28,11 +32,11 @@
         <div class="row g-4 mb-4">
             @forelse ($plans as $plan)
                 <div class="col-12 col-lg-12">
-                    <div class="app-card h-100 shadow-sm">
-                        <div class="app-card-header p-3">
+                    <div class="card border-0 shadow">
+                        <div class="card-header p-3 pb-0">
                             <div class="row justify-content-between align-items-center">
                                 <div class="col-auto">
-                                    <input type="radio" class="app-card-title" name="plan_id" value="{{ $plan->id }}"
+                                    <input type="radio" class="card-title" name="plan_id" value="{{ $plan->id }}"
                                         @if ($plan->id == 1) checked @endif>
                                     <b>{{ $plan->return }}% After {{ $plan->mining_period / 24 }} Day(s)</b>
                                 </div>
@@ -40,15 +44,15 @@
                             </div>
                             <!--//row-->
                         </div>
-                        <!--//app-card-header-->
-                        <div class="app-card-body p-3 p-lg-4">
+                        <!--//card-header-->
+                        <div class="card-body p-0">
                             <div class="table-responsive">
-                                <table class="table table-borderless mb-0">
-                                    <thead>
+                                <table class="table table-centered table-nowrap mb-0 table-dark">
+                                    <thead class="thead-dark">
                                         <tr>
-                                            <th class="meta">Plan</th>
-                                            <th class="meta stat-cell">Amount</th>
-                                            <th class="meta stat-cell">Profit(%)</th>
+                                            <th class="border-0">Plan</th>
+                                            <th class="border-0">Amount</th>
+                                            <th class="border-0">Profit(%)</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -70,9 +74,9 @@
                                             <td>{{ $plan->return }}</td>
                                         </tr>
                                         <tr>
-                                            <td colspan="3" align="right">
+                                            <td colspan="3" align="left">
                                                 <a href="javascript:openCalculator('{{ $plan->id }}')"
-                                                    class="btn btn-outline-primary">Calculate your
+                                                    class="btn btn-outline-secondary">Calculate your
                                                     profit &gt;&gt;</a>
                                             </td>
                                         </tr>
@@ -81,7 +85,7 @@
                             </div>
                             <!--//table-responsive-->
                         </div>
-                        <!--//app-card-body-->
+                        <!--//card-body-->
 
                     </div>
                 </div>
@@ -96,31 +100,25 @@
 
         <div class="row g-4 mb-4">
             <div class="col-12 col-lg-12">
-                <div class="app-card h-100 shadow-sm">
-                    <div class="app-card-header p-3">
+                <div class="card border-0 shadow">
+                    <div class="card-header p-3 pb-0">
                         <div class="row justify-content-between align-items-center">
                             <div class="col-auto">
-                                <h4 class="app-card-title">Payment Processor</h4>
+                                <h5 class="card-title">Payment Processor</h5>
                             </div>
                             <!--//col-->
                         </div>
                         <!--//row-->
                     </div>
-                    <!--//app-card-header-->
-                    <div class="app-card-body p-3 p-lg-4">
-                        <div class="text-center mb-3">
-                            <h3 class="text-info">Your account balance</h3>
-                            <h2>@money(Auth::user()->account_balance)</h2>
-                            <p class="text-info">AMOUNT TO SPEND:</p>
-                            <input type="text" name="amount" value="100.00"
-                                class="form-control text-center fw-bold text-primary">
-                        </div>
-
+                    <!--//card-header-->
+                    <div class="card-body p-3 bg-primary text-white">
                         @forelse ($payment_wallets as $wallet)
                             <div class="form-group">
                                 <input type="radio" name="wallet_type" value="{{ $wallet->id }}"
                                     @if ($wallet->id == 1) checked @endif>
-                                {{ $wallet->name }}
+                                {{ $wallet->name }} @if ($wallet->id != 1)
+                                    ({{ $wallet->network }})
+                                @endif
                             </div>
                         @empty
                             <div class="alert alert-warning" role="alert">
@@ -128,15 +126,27 @@
                             </div>
                         @endforelse
                     </div>
-                    <!--//app-card-body-->
+                    <!--//card-body-->
 
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-12">
+                <div class="card border-0 shadow bg-purple text-white">
+                    <div class="card-body d-flex justify-content-between">
+                        <div class="text-left w-100">AMOUNT TO SPEND:</div>
+                        <input type="text" name="amount" value="100.00"
+                            class="form-control text-center fw-bold text-primary">
+                    </div>
+                    <div class="card-footer p-3 d-flex justify-content-center">
+                        <button type="submit" class="btn btn-secondary w-25 mx-auto">Spend</button>
+                    </div>
                 </div>
             </div>
         </div>
         <!--//row-->
 
         <div class="text-center">
-            <button type="submit" class="btn app-btn-primary w-100 theme-btn mx-auto">Spend</button>
         </div>
     </form>
 @endsection

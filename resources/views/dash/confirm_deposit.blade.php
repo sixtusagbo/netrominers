@@ -1,33 +1,38 @@
 @extends('layouts.dash')
 
 @section('content')
-    <h1 class="app-page-title">Confirm Deposit</h1>
-
     <div class="row g-4 mb-4">
         <div class="col-12 col-lg-12">
-            <div class="app-card h-100 shadow-sm">
-                <div class="app-card-header p-3">
+            <div class="card border-0 shadow bg-purple text-white">
+                <div class="card-header p-3">
                     <div class="row justify-content-between align-items-center">
                         <div class="col-auto">
-                            <h4 class="app-card-title text-info">Please confirm your deposit</h4>
+                            <h5 class="card-title">Please confirm your deposit</h5>
                         </div>
                         <!--//col-->
                     </div>
                     <!--//row-->
                 </div>
-                <!--//app-card-header-->
-                <div class="app-card-body p-3 p-lg-4">
+                <!--//card-header-->
+                <div class="card-body p-3 p-lg-4">
                     Please send your payment in {{ $wallet->name }} to this wallet:
                     <p>
-                        <span id="addressToCopy" style="color:red;">
+                        <span id="addressToCopy" class="text-secondary fw-bolder">
                             {{ $wallet->address }}
                         </span>
-                        <span class="text-primary" onclick="copyToClipboard('addressToCopy')">Click
-                            to copy</span>
+                        <span class="btn btn-primary btn-sm" onclick="copyToClipboard('addressToCopy')">
+                            <svg height="24" width="24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                                data-name="Layer 1" viewBox="0 0 32 32">
+                                <path
+                                    d="M21.5,6V7.5H12A2.5,2.5,0,0,0,9.5,10V23.5H8A1.5,1.5,0,0,1,6.5,22V6A1.5,1.5,0,0,1,8,4.5H20A1.5,1.5,0,0,1,21.5,6Z" />
+                                <path
+                                    d="M24,8.5H12A1.5,1.5,0,0,0,10.5,10V26A1.5,1.5,0,0,0,12,27.5H24A1.5,1.5,0,0,0,25.5,26V10A1.5,1.5,0,0,0,24,8.5Zm-6,13H14a.5.5,0,0,1,0-1h4a.5.5,0,0,1,0,1Zm4-4H14a.5.5,0,0,1,0-1h8a.5.5,0,0,1,0,1Zm0-4H14a.5.5,0,0,1,0-1h8a.5.5,0,0,1,0,1Z" />
+                            </svg>
+                        </span>
                     </p>
 
                     <div class="table-responsive">
-                        <table class="table table-striped mb-0">
+                        <table class="table text-white">
                             <tbody>
                                 <tr>
                                     <th>Profit:</th>
@@ -84,7 +89,7 @@
                     </div>
 
                 </div>
-                <!--//app-card-body-->
+                <!--//card-body-->
 
             </div>
         </div>

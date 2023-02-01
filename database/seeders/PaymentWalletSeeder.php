@@ -19,8 +19,8 @@ class PaymentWalletSeeder extends Seeder
         PaymentWallet::factory()->create();
         // Eth
         PaymentWallet::factory()->create([
-            'name' => 'Ethereum',
-            'network' => 'ETH'
+            'name' => 'USDT',
+            'network' => 'TRC-20'
         ]);
     }
 }
