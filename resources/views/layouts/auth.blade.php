@@ -1,62 +1,100 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" style="height: 100%;">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="title" content="{{ config('myglobals.app_name') }}">
-
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- Primary Meta Tags -->
     <title>{{ config('myglobals.app_name') }}</title>
-    <link rel="shortcut icon" href="{{ asset('images/auth/favicon.png') }}" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="title" content="{{ config('myglobals.app_name') }}">
+    <meta name="author" content="{{ config('myglobals.app_name') }}">
+    <meta name="description" content="{{ config('myglobals.seo.description') }}">
+    <meta name="keywords" content="{{ config('myglobals.seo.keywords') }}" />
 
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ config('app.url') }}">
     <meta property="og:title" content="{{ config('myglobals.app_name') }}">
-    <meta property="og:description" content="Advance Crypto Mining Service.">
-    <meta property="og:image" content="{{ asset('images/logo.png') }}">
+    <meta property="og:description" content="{{ config('myglobals.seo.description') }}">
+    <meta property="og:image" content="{{ asset('images/banner.png') }}">
 
-    <!-- FontAwesome JS-->
-    <script defer src="{{ asset('plugins/fontawesome/js/all.min.js') }}"></script>
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ config('app.url') }}">
+    <meta property="twitter:title" content="{{ config('myglobals.app_name') }}">
+    <meta property="twitter:description" content="{{ config('myglobals.seo.description') }}">
+    <meta property="twitter:image" content="{{ asset('images/banner.png') }}">
 
-    <!-- App CSS -->
-    <link id="theme-style" rel="stylesheet" href="{{ asset('css/dash.css') }}">
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ asset('images/favicon/site.webmanifest') }}">
+    <meta name="msapplication-TileColor" content="#D44B25">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Sweet Alert -->
+    <link type="text/css" href="{{ asset('vendor/sweetalert2/dist/sweetalert2.min.css') }}" rel="stylesheet">
+
+    <!-- Notyf -->
+    <link type="text/css" href="{{ asset('vendor/notyf/notyf.min.css') }}" rel="stylesheet">
+
+    <!-- Dashboard CSS -->
+    <link type="text/css" href="{{ asset('css/dash.css') }}" rel="stylesheet">
 </head>
 
-<body class="app app-login p-0">
-    <div class="row g-0 app-auth-wrapper">
-        <div class="col-12 col-md-7 col-lg-6 auth-main-col text-center p-5">
-            <div class="d-flex flex-column align-content-end">
-                <div class="app-auth-body mx-auto">
-                    <div class="app-auth-branding mb-4">
-                        <a class="app-logo" href="index.html">
-                            <img class="logo-icon me-2" src="{{ asset('images/auth/logo.png') }}" alt="logo">
-                        </a>
-                    </div>
-                    @yield('content')
+<body>
 
+    <main data-background-lg="{{ asset('images/illustrations/blockchain.jpg') }}">
+        <!-- Section -->
+        <section class="h-100 mt-5 mt-lg-0 bg-soft d-flex align-items-center">
+            <div class="container">
+                <div class="row justify-content-center form-bg-image">
+                    <div class="col-12 d-flex align-items-center justify-content-center">
+                        <div class="bg-white shadow border-0 rounded border-light p-4 p-lg-5 w-100 fmxw-500 mt-5">
+                            @yield('content')
+                        </div>
+                    </div>
                 </div>
-                <!--//auth-body-->
-
-                <footer class="app-auth-footer">
-                    <div class="container text-center py-3">
-                        &copy; 2022 bit-fin.co All Rights Reserved
-                    </div>
-                </footer>
-                <!--//app-auth-footer-->
             </div>
-            <!--//flex-column-->
-        </div>
-        <!--//auth-main-col-->
-        <div class="col-12 col-md-5 col-lg-6 auth-background-col">
-            <div class="auth-background-holder">
-            </div>
-            <div class="auth-background-mask"></div>
-            <!--//auth-background-overlay-->
-        </div>
-        <!--//auth-background-col-->
+        </section>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </main>
 
-    </div>
-    <!--//row-->
-
-
+    <script src="{{ asset('vendor/@popperjs/core/dist/umd/popper.min.js') }}"></script>
+    <script src="{{ asset('vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('vendor/onscreen/dist/on-screen.umd.min.js') }}"></script>
+    <script src="{{ asset('vendor/nouislider/dist/nouislider.min.js') }}"></script>
+    <script src="{{ asset('vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js') }}"></script>
+    <script src="{{ asset('vendor/chartist/dist/chartist.min.js') }}"></script>
+    <script src="{{ asset('vendor/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js') }}"></script>
+    <script src="{{ asset('vendor/vanillajs-datepicker/dist/js/datepicker.min.js') }}"></script>
+    <script src="{{ asset('vendor/sweetalert2/dist/sweetalert2.all.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+    <script src="{{ asset('vendor/vanillajs-datepicker/dist/js/datepicker.min.js') }}"></script>
+    <script src="{{ asset('vendor/notyf/notyf.min.js') }}"></script>
+    <script src="{{ asset('vendor/simplebar/dist/simplebar.min.js') }}"></script>
+    <script src="{{ asset('js/dash.js') }}"></script>
+    @yield('script')
 </body>
 
 </html>

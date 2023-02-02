@@ -20,8 +20,8 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('username')->unique();
-            $table->string('secret_question');
-            $table->string('secret_answer');
+            $table->string('secret_question')->nullable();
+            $table->string('secret_answer')->nullable();
             $table->string('btc_address')->nullable();
             $table->string('usdt_address')->nullable();
             $table->tinyInteger('type')->default(0);

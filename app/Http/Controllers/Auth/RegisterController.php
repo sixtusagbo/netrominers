@@ -70,8 +70,6 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users', 'confirmed'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'username' => ['required', 'string', 'max:255', 'unique:users'],
-            'secret_question' => ['required', 'string', 'max:255'],
-            'secret_answer' => ['required', 'string', 'max:255'],
         ]);
     }
 
@@ -90,8 +88,6 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'username' => $data['username'],
-            'secret_question' => $data['secret_question'],
-            'secret_answer' => $data['secret_answer'],
             'btc_address' => $data['btc_address'],
             'usdt_address' => $data['usdt_address'],
             'referrer_id' => $referrer ? $referrer->id : null,

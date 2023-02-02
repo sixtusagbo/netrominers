@@ -21,12 +21,6 @@ class DatabaseSeeder extends Seeder
             'email' => 'sixtusagbo211@gmail.com',
         ]);
 
-        \App\Models\User::factory()->unverified()->create([
-            'name' => 'Sixto Mimi',
-            'username' => 'sixtuso',
-            'email' => 'mail.mirolic@gmail.com',
-        ]);
-
         if (App::environment('local')) {
             \App\Models\User::factory(12)->create();
         }
