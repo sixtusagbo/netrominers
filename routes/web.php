@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Core routes
 Route::get('/', [CoreController::class, 'index']);
 Route::get('/about', [CoreController::class, 'about'])->name('about');
 Route::get('/why_us', [CoreController::class, 'why_us'])->name('why_us');
@@ -31,11 +32,12 @@ Route::get('/affiliate', [CoreController::class, 'affiliate'])->name('affiliate'
 Route::get('/faq', [CoreController::class, 'faq'])->name('faq');
 Route::get('/contact', [CoreController::class, 'contact'])->name('contact');
 Route::post('/contact', [CoreController::class, 'send_contact']);
-Route::get('/security', [CoreController::class, 'security'])->name('security');
+// Route::get('/security', [CoreController::class, 'security'])->name('security');
 Route::get('/terms_and_conditions', [CoreController::class, 'terms'])->name('terms');
 
 Auth::routes(['verify' => true]);
 
+// Dashboard routes
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/deposit', [HomeController::class, 'deposit'])->name('deposit');
 Route::post('/confirm_deposit', [HomeController::class, 'confirm_deposit'])->name('confirm_deposit');
@@ -47,7 +49,10 @@ Route::post('/withdraw', [HomeController::class, 'store_withdrawal'])->name('wit
 Route::get('/referrals', [HomeController::class, 'referrals'])->name('referrals');
 Route::get('/edit_account', [HomeController::class, 'profile'])->name('profile');
 Route::post('/profile', [HomeController::class, 'update_profile'])->name('profile.update');
+Route::get('/settings', [HomeController::class, 'security'])->name('security');
+Route::post('/security', [HomeController::class, 'sec_settings'])->name('update_sec');
 
+// Admin dashboard routes
 Route::resource('controls', AdminController::class)->only(['index', 'destroy']);
 Route::resource('credits', PaymentController::class)->only(['index', 'update', 'destroy']);
 Route::resource('debits', WithdrawalController::class)->only(['index', 'update', 'destroy']);

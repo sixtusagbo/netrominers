@@ -262,4 +262,35 @@ class HomeController extends Controller
 
         return redirect()->route('profile')->with('success', 'Your account data has been updated successfully.');
     }
+
+    /**
+     * Show trading exchange
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function security()
+    {
+        return view('dash.security');
+    }
+
+    /**
+     * Update user security settings
+     * 
+     * @param  \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function sec_settings(Request $request)
+    {
+        $newVal = $request->validate([
+            'ip' => 'required|integer',
+            'browser' => 'required|integer',
+        ]);
+
+        $user = User::find(auth()->user()->id);
+        $user->ip_change = $newVal['ip'];
+        $user->browser_change = $newVal['browser'];
+        $user->update();
+
+        return redirect()->route('home')->with('success', 'Security settings updated successfully');
+    }
 }

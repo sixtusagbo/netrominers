@@ -104,7 +104,7 @@
                     <div class="card-header p-3 pb-0">
                         <div class="row justify-content-between align-items-center">
                             <div class="col-auto">
-                                <h5 class="card-title">Payment Processor</h5>
+                                <h6 class="card-title">Payment Processor</h6>
                             </div>
                             <!--//col-->
                         </div>

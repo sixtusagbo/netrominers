@@ -26,6 +26,8 @@ return new class extends Migration
             $table->string('usdt_address')->nullable();
             $table->tinyInteger('type')->default(0);
             $table->timestamp('last_access')->nullable();
+            $table->tinyInteger('ip_change')->default(0);
+            $table->tinyInteger('browser_change')->default(0);
             // Setting up a self-referencing table for referrals
             $table->unsignedBigInteger('referrer_id')->nullable();
             $table->foreign('referrer_id')->references('id')->on('users');
