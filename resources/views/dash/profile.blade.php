@@ -1,7 +1,7 @@
 @extends('layouts.dash')
 
 @section('content')
-    <h1 class="app-page-title">Edit account</h1>
+    <h4>User Details</h4>
 
     @if (session('success'))
         <div class="alert alert-success" role="alert">
@@ -11,8 +11,8 @@
 
     <div class="row g-4 mb-4">
         <div class="col-12 col-lg-12">
-            <div class="app-card h-100 shadow-sm">
-                <div class="app-card-body p-3 p-lg-4">
+            <div class="card border-0 shadow">
+                <div class="card-body p-3">
                     <form action="{{ route('profile.update') }}" method="POST">
                         @csrf
 
@@ -63,7 +63,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Your Bitcoin - BTC Wallet Address:</td>
+                                    <td>Your Bitcoin Wallet Address:</td>
                                     <td>
                                         <input id="btc_address" type="text"
                                             class="form-control @error('btc_address') is-invalid @enderror"
@@ -78,14 +78,14 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Your Ethereum - ETH Wallet Address:</td>
+                                    <td>Your USDT (TRC-20) Wallet Address:</td>
                                     <td>
-                                        <input id="eth_address" type="text"
-                                            class="form-control @error('eth_address') is-invalid @enderror"
-                                            name="eth_address" value="{{ old('eth_address') }}" autocomplete="eth_address"
-                                            autofocus>
+                                        <input id="usdt_address" type="text"
+                                            class="form-control @error('usdt_address') is-invalid @enderror"
+                                            name="usdt_address" value="{{ old('usdt_address') }}"
+                                            autocomplete="usdt_address" autofocus>
 
-                                        @error('eth_address')
+                                        @error('usdt_address')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
@@ -111,7 +111,7 @@
                     </form>
 
                 </div>
-                <!--//app-card-body-->
+                <!--//card-body-->
 
             </div>
         </div>

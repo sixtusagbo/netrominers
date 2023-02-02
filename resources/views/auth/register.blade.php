@@ -104,11 +104,11 @@
             </div>
             <div class="email mb-3">
                 <label class="sr-only" for="signup-email">Ethereum - ETH Wallet Address</label>
-                <input id="eth_address" type="text" class="form-control @error('eth_address') is-invalid @enderror"
-                    name="eth_address" value="{{ old('eth_address') }}" placeholder="Ethereum - ETH Wallet Address"
-                    autocomplete="eth_address" autofocus>
+                <input id="usdt_address" type="text" class="form-control @error('usdt_address') is-invalid @enderror"
+                    name="usdt_address" value="{{ old('usdt_address') }}" placeholder="Ethereum - ETH Wallet Address"
+                    autocomplete="usdt_address" autofocus>
 
-                @error('eth_address')
+                @error('usdt_address')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>

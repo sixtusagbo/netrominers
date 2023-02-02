@@ -3,7 +3,7 @@
 @section('content')
     <h4>Your Deposits</h4>
 
-    <div class="alert alert-info d-flex justify-content-between fs-5 p-2 px-3">
+    <div class="alert alert-secondary d-flex justify-content-between fs-5 p-2 px-3">
         Total: <strong>@money($active_deposits)</strong>
     </div>
 

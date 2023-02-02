@@ -241,7 +241,7 @@ class HomeController extends Controller
         $name = $request->name;
         $password = $request->password;
         $btc_address = $request->btc_address;
-        $eth_address = $request->eth_address;
+        $usdt_address = $request->usdt_address;
 
         $user = User::find(auth()->user()->id);
         if ($name != null) {
@@ -253,8 +253,8 @@ class HomeController extends Controller
         if ($btc_address != null) {
             $user->btc_address = $btc_address;
         }
-        if ($eth_address != null) {
-            $user->eth_address = $eth_address;
+        if ($usdt_address != null) {
+            $user->usdt_address = $usdt_address;
         }
         $user->update();
 

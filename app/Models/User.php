@@ -28,7 +28,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'secret_question',
         'secret_answer',
         'btc_address',
-        'eth_address',
+        'usdt_address',
     ];
 
     /**

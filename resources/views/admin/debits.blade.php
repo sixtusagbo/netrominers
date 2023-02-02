@@ -43,7 +43,7 @@
                                             {{ $withdrawal->user->btc_address ? $withdrawal->user->btc_address : 'Not set' }}
                                         </td>
                                         <td class="item">
-                                            {{ $withdrawal->user->eth_address ? $withdrawal->user->eth_address : 'Not set' }}
+                                            {{ $withdrawal->user->usdt_address ? $withdrawal->user->usdt_address : 'Not set' }}
                                         </td>
                                         <td>
                                             @switch($withdrawal->status)
@@ -103,7 +103,7 @@
                                                         </div>
                                                         <div class="mb-3">
                                                             <input type="text" class="form-control text-capitalize"
-                                                                value="{{ $withdrawal->user->eth_address ? $withdrawal->user->eth_address : 'Not set' }}"
+                                                                value="{{ $withdrawal->user->usdt_address ? $withdrawal->user->usdt_address : 'Not set' }}"
                                                                 readonly>
                                                         </div>
 

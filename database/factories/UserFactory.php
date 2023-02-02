@@ -26,7 +26,7 @@ class UserFactory extends Factory
             'secret_question' => fake()->slug() . '?',
             'secret_answer' => fake()->text(5),
             'btc_address' => Str::random(35),
-            'eth_address' => Str::random(35),
+            'usdt_address' => Str::random(35),
             'remember_token' => Str::random(10),
         ];
     }

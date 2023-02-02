@@ -4,7 +4,7 @@
     <h4>Make A Deposit</h4>
 
     <div class="d-grid mb-2">
-        <button class="btn-secondary rounded" disabled>Select Plan:</button>
+        <button class="btn-secondary rounded border-0 fw-bold py-1" disabled>Select Plan:</button>
     </div>
 
     @if (session('success'))

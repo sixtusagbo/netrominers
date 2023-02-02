@@ -93,7 +93,7 @@ class RegisterController extends Controller
             'secret_question' => $data['secret_question'],
             'secret_answer' => $data['secret_answer'],
             'btc_address' => $data['btc_address'],
-            'eth_address' => $data['eth_address'],
+            'usdt_address' => $data['usdt_address'],
             'referrer_id' => $referrer ? $referrer->id : null,
         ]);
     }
