@@ -19,7 +19,7 @@ class PaymentController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['auth', 'verified']);
+        $this->middleware(['auth', 'verified', 'role.admin']);
     }
 
     /**
@@ -29,11 +29,6 @@ class PaymentController extends Controller
      */
     public function index()
     {
-        //check if user trying to access the route is admin
-        if (auth()->user()->type != 1) {
-            return redirect('/')->with('error', 'Unauthorized Page');
-        }
-
         $payments = Payment::latest()->paginate(10);
         $wallets = PaymentWallet::all();
 
@@ -55,11 +50,6 @@ class PaymentController extends Controller
     public function update(Request $request, $id)
     {
         // return request();
-
-        //check if user trying to access the route is admin
-        if (auth()->user()->type != 1) {
-            return redirect('/')->with('error', 'Unauthorized Page');
-        }
 
         $payment = Payment::find($id);
         $user = User::find($payment->user->id);
@@ -86,11 +76,6 @@ class PaymentController extends Controller
     public function destroy($id)
     {
         // return request();
-
-        //check if user trying to access the page is admin
-        if (auth()->user()->type != 1) {
-            return redirect('/')->with('error', 'Unauthorized Page');
-        }
 
         $payment = Payment::find($id);
         $payment->delete();

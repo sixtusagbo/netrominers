@@ -17,7 +17,7 @@ class WithdrawalController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['auth', 'verified']);
+        $this->middleware(['auth', 'verified', 'role.admin']);
     }
 
     /**
@@ -27,11 +27,6 @@ class WithdrawalController extends Controller
      */
     public function index()
     {
-        //check if user trying to access the route is admin
-        if (auth()->user()->type != 1) {
-            return redirect('/')->with('error', 'Unauthorized Page');
-        }
-
         $withdrawals = Withdrawal::latest()->paginate(10);
 
         $data = [
@@ -51,11 +46,6 @@ class WithdrawalController extends Controller
     public function update(Request $request, $id)
     {
         // return request();
-
-        //check if user trying to access the route is admin
-        if (auth()->user()->type != 1) {
-            return redirect('/')->with('error', 'Unauthorized Page');
-        }
 
         $withdrawal = Withdrawal::find($id);
         $user = User::find($withdrawal->user->id);
@@ -79,11 +69,6 @@ class WithdrawalController extends Controller
     public function destroy($id)
     {
         // return request();
-
-        //check if user trying to access the page is admin
-        if (auth()->user()->type != 1) {
-            return redirect('/')->with('error', 'Unauthorized Page');
-        }
 
         $withdrawal = Withdrawal::find($id);
         $withdrawal->delete();
