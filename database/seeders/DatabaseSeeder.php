@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Sixtus Agbo',
             'username' => 'sixtusagbo',
             'email' => 'sixtusagbo211@gmail.com',
+            'type' => 1
         ]);
 
         if (App::environment('local')) {

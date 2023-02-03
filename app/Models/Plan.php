@@ -11,10 +11,10 @@ class Plan extends Model
 
     protected $fillable = [
         'name',
-        'min_deposit',
-        'max_deposit',
-        'return',
-        'mining_period',
+        'min_deposit', //? amount
+        'max_deposit', //? amount
+        'return', //? In percent
+        'mining_period', //? In hours
     ];
 
     /**
