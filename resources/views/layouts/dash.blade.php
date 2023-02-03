@@ -166,7 +166,7 @@
                         <span class="sidebar-text">Profile</span>
                     </a>
                 </li>
-                <li class="nav-item @if (Request::is('edit_account')) active @endif">
+                <li class="nav-item @if (Request::is('settings')) active @endif">
                     <a href="{{ route('security') }}" class="nav-link">
                         <span class="sidebar-icon">
                             <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
@@ -185,7 +185,6 @@
 
     <main class="content">
 
-        {{-- User Icon --}}
         <nav class="navbar navbar-top navbar-expand navbar-dashboard navbar-dark ps-0 pe-2 pb-0">
             <div class="container-fluid px-0">
                 <div class="d-flex justify-content-between w-100" id="navbarSupportedContent">
@@ -256,6 +255,8 @@
                 </div>
             </div>
         </nav>
+
+        @include('inc.messages')
 
         @yield('content')
 

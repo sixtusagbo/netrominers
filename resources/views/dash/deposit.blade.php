@@ -7,12 +7,6 @@
         <button class="btn-secondary rounded border-0 fw-bold py-1" disabled>Select Plan:</button>
     </div>
 
-    @if (session('success'))
-        <div class="alert alert-success" role="alert">
-            {{ session('success') }}
-        </div>
-    @endif
-
     <form method="POST" name="spendform" action="{{ route('confirm_deposit') }}">
         @csrf
 

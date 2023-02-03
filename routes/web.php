@@ -47,9 +47,9 @@ Route::get('/deposit_list', [HomeController::class, 'deposit_list'])->name('depo
 Route::get('/withdraw', [HomeController::class, 'withdraw'])->name('withdraw');
 Route::post('/withdraw', [HomeController::class, 'store_withdrawal'])->name('withdrawals.store');
 Route::get('/referrals', [HomeController::class, 'referrals'])->name('referrals');
-Route::get('/edit_account', [HomeController::class, 'profile'])->name('profile');
+Route::get('/edit_account', [HomeController::class, 'profile'])->name('profile')->middleware('password.confirm');
 Route::post('/profile', [HomeController::class, 'update_profile'])->name('profile.update');
-Route::get('/settings', [HomeController::class, 'security'])->name('security');
+Route::get('/settings', [HomeController::class, 'security'])->name('security')->middleware('password.confirm');
 Route::post('/security', [HomeController::class, 'sec_settings'])->name('update_sec');
 
 // Admin dashboard routes

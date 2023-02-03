@@ -215,12 +215,7 @@
 
         <div class="app-content pt-3 p-md-3 p-lg-4">
             <div class="container-xl">
-                @if (session('success'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('success') }}
-                    </div>
-                @endif
-
+                @include('inc.messages')
                 @yield('content')
             </div>
             <!--//container-fluid-->

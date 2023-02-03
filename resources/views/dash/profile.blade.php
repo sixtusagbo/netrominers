@@ -3,12 +3,6 @@
 @section('content')
     <h4>User Details</h4>
 
-    @if (session('success'))
-        <div class="alert alert-success" role="alert">
-            {{ session('success') }}
-        </div>
-    @endif
-
     <div class="row g-4 mb-4">
         <div class="col-12 col-lg-12">
             <div class="card border-0 shadow">

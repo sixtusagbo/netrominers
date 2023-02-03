@@ -3,12 +3,6 @@
  @section('content')
      <h4>Withdrawal</h4>
 
-     @if (session('success'))
-         <div class="alert alert-success" role="alert">
-             {{ session('success') }}
-         </div>
-     @endif
-
      <div class="alert alert-secondary d-flex justify-content-between fs-5 p-2 px-3">
          <div>Account Balance (@money(Auth::user()->account_balance))</div>
          <div>Pending Withdrawals (@money(Auth::user()->pending_withdrawals))</div>
