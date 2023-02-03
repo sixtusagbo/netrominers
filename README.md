@@ -1,4 +1,4 @@
-# NetroMiners
+# Netrominers
 
 A cloud mining application
 

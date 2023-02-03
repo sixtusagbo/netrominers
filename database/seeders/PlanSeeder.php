@@ -17,42 +17,34 @@ class PlanSeeder extends Seeder
     {
         // Plan 1
         Plan::factory()->create([
-            'name' => 'Plan 1',
-            'return' => 10,
+            'name' => 'BASIC TRADING',
+            'return' => 20,
             'mining_period' => 24,
-            'min_deposit' => 100,
-            'max_deposit' => 1000,
+            'min_deposit' => 50,
+            'max_deposit' => 499,
         ]);
         // Plan 2
         Plan::factory()->create([
-            'name' => 'Plan 2',
-            'return' => 20,
+            'name' => 'PREMIUM TRADING',
+            'return' => 40,
             'mining_period' => 48,
             'min_deposit' => 500,
-            'max_deposit' => 5000,
+            'max_deposit' => 999,
         ]);
         // Plan 3
         Plan::factory()->create([
-            'name' => 'Plan 3',
-            'return' => 25,
+            'name' => 'MASTER TRADING',
+            'return' => 80,
             'mining_period' => 72,
-            'min_deposit' => 5000,
-            'max_deposit' => 10000,
+            'min_deposit' => 1000,
+            'max_deposit' => 4999,
         ]);
         // Plan 4
         Plan::factory()->create([
-            'name' => 'Contract Plan 1',
-            'return' => 30,
-            'mining_period' => 120,
-            'min_deposit' => 10000,
-            'max_deposit' => 20000,
-        ]);
-        // Plan 5
-        Plan::factory()->create([
-            'name' => 'Contract Plan 2',
-            'return' => 40,
-            'mining_period' => 240,
-            'min_deposit' => 1,
+            'name' => 'PROMO TRADING',
+            'return' => 100,
+            'mining_period' => 48,
+            'min_deposit' => 5000,
             'max_deposit' => null,
         ]);
     }
