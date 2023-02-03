@@ -285,6 +285,14 @@ ul li {
 .text-mover h1 {
     color: rgb(22, 214, 214);
 }
+.all-boxs {
+    background-color:white;
+    padding: 20px;
+}
+.all-boxs h2 {
+    color: green;
+    padding: 20px;
+}
 footer {
     background-color:whitesmoke;
     width: 100%;
@@ -345,7 +353,7 @@ footer a:hover {
     }
     .nav-sub {
         position: absolute;
-        top: 9vh;
+        top: 14vh;
         right: 0px;
         padding: 50px;
         height: 100vh;
@@ -428,6 +436,10 @@ footer a:hover {
         height: 400px;
         display: inline-block;
         margin: 0px;
+    }
+    iframe {
+        width: 400px;
+        height: 500px;
     }
     .footer-div {
         width: 300px;

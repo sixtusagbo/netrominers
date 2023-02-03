@@ -91,7 +91,7 @@ ul li {
     flex-wrap: wrap-reverse;
     justify-content: center;
     align-content: center;
-    padding-top: 80px;
+    padding-top: 120px;
     padding-bottom: 50px;
 }
 #cirl {
@@ -178,7 +178,7 @@ footer a:hover {
     }
     .nav-sub {
         position: absolute;
-        top: 9vh;
+        top: 14vh;
         right: 0px;
         padding: 50px;
         height: 100vh;

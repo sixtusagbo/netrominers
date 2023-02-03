@@ -90,7 +90,7 @@ ul li {
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
-    padding-top: 50px;
+    padding-top: 100px;
 }
 
 .pl h5 {
@@ -222,7 +222,7 @@ footer a:hover {
     }
     .nav-sub {
         position: absolute;
-        top: 9vh;
+        top: 14vh;
         right: 0px;
         padding: 50px;
         height: 100vh;
