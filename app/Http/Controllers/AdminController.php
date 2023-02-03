@@ -14,7 +14,7 @@ class AdminController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['auth', 'verified']);
+        $this->middleware(['auth', 'verified', 'role.admin']);
     }
 
     /**
@@ -24,11 +24,6 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //check if user trying to access the controller is admin
-        if (auth()->user()->type != 1) {
-            return redirect('/')->with('error', 'Unauthorized Page');
-        }
-
         $users = User::where('type', '0')->paginate(10);
 
         $data = [

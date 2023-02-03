@@ -1,34 +1,24 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="alert alert-info d-flex justify-content-between fs-5 fw-bold">
-        Total Users: <p>{{ $users->count() }}</p>
-    </div>
-
     <div class="row g-4 mb-4">
         <div class="col-12 col-lg-12">
-            <div class="app-card h-100 shadow-sm">
-                <div class="app-card-header p-3">
-                    <div class="row justify-content-between align-items-center">
-                        <div class="col-auto">
-                            <h4 class="app-card-title">Referral Link</h4>
-                        </div>
-                        <!--//col-->
-                    </div>
-                    <!--//row-->
+            <div class="card border-0 shadow">
+                <div class="card-header p-3 pb-0">
+                    <h5 class="card-title">Members ({{ $users->count() }})</h5>
                 </div>
-                <!--//app-card-header-->
-                <div class="app-card-body">
+                <!--//card-header-->
+                <div class="card-body">
 
-                    <div class="table-responsive w-100">
+                    <div class="table-responsive rounded mb-2">
                         <table class="table table-dark table-striped">
                             <thead>
                                 <tr>
-                                    <th>Username</th>
-                                    <th>Email</th>
-                                    <th>Full Name</th>
-                                    <th>Referred By:</th>
-                                    <th>Options</th>
+                                    <th class="border-0 rounded-start">Username</th>
+                                    <th class="border-0">Email</th>
+                                    <th class="border-0">Full Name</th>
+                                    <th class="border-0">Referred By:</th>
+                                    <th class="border-0 rounded-end">Options</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -93,10 +83,11 @@
                             </tbody>
                         </table>
                     </div>
+
                     {{ $users->links() }}
 
                 </div>
-                <!--//app-card-body-->
+                <!--//card-body-->
 
             </div>
         </div>

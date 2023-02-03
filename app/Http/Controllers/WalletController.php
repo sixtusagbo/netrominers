@@ -15,7 +15,7 @@ class WalletController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['auth', 'verified']);
+        $this->middleware(['auth', 'verified', 'role.admin']);
     }
 
     /**
@@ -25,11 +25,6 @@ class WalletController extends Controller
      */
     public function index()
     {
-        //check if user trying to access the route is admin
-        if (auth()->user()->type != 1) {
-            return redirect('/')->with('error', 'Unauthorized Page');
-        }
-
         $wallets = PaymentWallet::all();
 
         $data = [
@@ -50,14 +45,12 @@ class WalletController extends Controller
     {
         // return request();
 
-        //check if user trying to access the route is admin
-        if (auth()->user()->type != 1) {
-            return redirect('/')->with('error', 'Unauthorized Page');
-        }
-
         $wallet = PaymentWallet::find($id);
 
-        $wallet->address = $request->input('address');
+        if ($request->input('address')) {
+            $wallet->address = $request->input('address');
+        }
+        $wallet->update();
 
         return redirect()->route('wallets.index')->with('success', 'Wallet address successfuly updated');
     }

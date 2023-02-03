@@ -2,30 +2,18 @@
 
 @section('content')
     <div class="alert alert-info bg-light-info text-light-info" role="alert">
-        <h6>
-            Remember to update payment status as completed when the duration has elapsed.
-        </h6>
-    </div>
-    <div class="alert alert-info d-flex justify-content-between fs-5 fw-bold">
-        Total Payments: <p>{{ $payments->count() }}</p>
+        Remember to update payment status as completed when the duration has elapsed.
     </div>
 
     <div class="row g-4 mb-4">
         <div class="col-12 col-lg-12">
-            <div class="app-card h-100 shadow-sm">
-                <div class="app-card-header p-3">
-                    <div class="row justify-content-between align-items-center">
-                        <div class="col-auto">
-                            <h4 class="app-card-title">Referral Link</h4>
-                        </div>
-                        <!--//col-->
-                    </div>
-                    <!--//row-->
+            <div class="card border-0 shadow">
+                <div class="card-header pb-0">
+                    <h5 class="card-title">Deposits ({{ $payments->count() }})</h5>
                 </div>
-                <!--//app-card-header-->
-                <div class="app-card-body">
 
-                    <div class="table-responsive w-100">
+                <div class="card-body">
+                    <div class="table-responsive rounded">
                         <table class="table table-dark table-striped">
                             <thead>
                                 <tr>
@@ -99,15 +87,15 @@
                                                         @csrf
 
                                                         <div class="mb-3">
-                                                            <input type="text" class="form-control text-capitalize"
+                                                            <input type="text" class="form-control"
                                                                 value="{{ $payment->user->username }}" readonly>
                                                         </div>
                                                         <div class="mb-3">
-                                                            <input type="text" class="form-control text-capitalize"
+                                                            <input type="text" class="form-control"
                                                                 value="{{ $payment->wallet->name }}" readonly>
                                                         </div>
                                                         <div class="mb-3">
-                                                            <input type="text" class="form-control text-capitalize"
+                                                            <input type="text" class="form-control"
                                                                 value="{{ $payment->plan->name }}" readonly>
                                                         </div>
 
@@ -190,16 +178,20 @@
                                     </div>
                                     <!--//Delete Payment-->
                                     @empty
-                                        <div class="alert alert-warning" role="alert">
-                                            Admin please run your migrations!
-                                        </div>
+                                        <tr>
+                                            <td colspan="6">
+                                                <span class="badge bg-indigo">
+                                                    No deposits yet!
+                                                </span>
+                                            </td>
+                                        </tr>
                                     @endforelse
                                 </tbody>
                             </table>
                         </div>
 
                     </div>
-                    <!--//app-card-body-->
+                    <!--//card-body-->
 
                 </div>
             </div>
