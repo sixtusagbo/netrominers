@@ -53,7 +53,7 @@ Route::get('/settings', [HomeController::class, 'security'])->name('security')->
 Route::post('/security', [HomeController::class, 'sec_settings'])->name('update_sec');
 
 // Admin dashboard routes
-Route::resource('controls', AdminController::class)->only(['index', 'destroy']);
+Route::resource('controls', AdminController::class)->except(['create', 'show']);
 Route::resource('credits', PaymentController::class)->only(['index', 'update', 'destroy']);
 Route::resource('debits', WithdrawalController::class)->only(['index', 'update', 'destroy']);
 Route::resource('wallets', WalletController::class)->only(['index', 'update']);

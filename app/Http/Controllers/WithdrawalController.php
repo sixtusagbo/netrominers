@@ -27,7 +27,7 @@ class WithdrawalController extends Controller
      */
     public function index()
     {
-        $withdrawals = Withdrawal::latest()->paginate(10);
+        $withdrawals = Withdrawal::latest()->get();
 
         $data = [
             'withdrawals' => $withdrawals,

@@ -23,7 +23,7 @@
                             <tbody>
                                 @forelse ($wallets as $wallet)
                                     <tr>
-                                        <td class="item">{{ $wallet->name }} - {{ $wallet->network }}</td>
+                                        <td class="item">{{ $wallet->name }} ({{ $wallet->network }})</td>
                                         <td class="item">{{ $wallet->address }}</td>
                                         <td class="item text-center">{{ $wallet->payments->count() }}</td>
                                         <td class="item">

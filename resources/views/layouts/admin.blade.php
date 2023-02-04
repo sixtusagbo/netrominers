@@ -39,9 +39,13 @@
     <!-- Notyf -->
     <link type="text/css" href="{{ asset('vendor/notyf/notyf.min.css') }}" rel="stylesheet">
 
+    <!-- DataTables -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/dataTables.bootstrap5.min.css">
+
     <!-- Dashboard CSS -->
     <link type="text/css" href="{{ asset('css/dash.css') }}" rel="stylesheet">
 
+    @yield('style')
 </head>
 
 <body>
@@ -254,7 +258,20 @@
     <script src="{{ asset('vendor/vanillajs-datepicker/dist/js/datepicker.min.js') }}"></script>
     <script src="{{ asset('vendor/notyf/notyf.min.js') }}"></script>
     <script src="{{ asset('vendor/simplebar/dist/simplebar.min.js') }}"></script>
+    <!-- DataTables -->
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.2/js/dataTables.bootstrap5.min.js"></script>
+    <!-- App Script -->
     <script src="{{ asset('js/dash.js') }}"></script>
+
+    <script>
+        $(document).ready(function() {
+            if ($('.table').length) {
+                $('.table').DataTable();
+            }
+        });
+    </script>
     @yield('script')
 </body>
 

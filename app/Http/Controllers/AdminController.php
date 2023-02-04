@@ -24,7 +24,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $users = User::where('type', '0')->paginate(10);
+        $users = User::where('type', '0')->get();
 
         $data = [
             'users' => $users,

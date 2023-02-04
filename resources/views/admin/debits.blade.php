@@ -52,8 +52,6 @@
                                                 @case(1)
                                                     <span class="badge rounded-pill bg-success">Confirmed</span>
                                                 @break
-
-                                                @default
                                             @endswitch
                                         </td>
                                         <td class="item">
@@ -76,7 +74,7 @@
                                         </td>
                                     </tr>
 
-                                    <!-- Edit Withdrawal Model -->
+                                    <!-- Edit Withdrawal Modal -->
                                     <div class="modal fade" id="editWithdrawal{{ $withdrawal->id }}" tabindex="-1"
                                         role="dialog" aria-hidden="true">
                                         <div class="modal-dialog">
@@ -144,7 +142,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!--//Edit Withdrawal-->
+                                    <!-- Edit Withdrawal -->
 
                                     <!--Delete Withdrawal-->
                                     <div class="modal fade" id="deleteWithdrawal{{ $withdrawal->id }}" tabindex="-1"
@@ -182,7 +180,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!--//Delete Withdrawal-->
+                                    <!-- Delete Withdrawal -->
                                     @empty
                                         <tr>
                                             <td colspan="6">

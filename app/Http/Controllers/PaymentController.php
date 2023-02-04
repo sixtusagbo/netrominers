@@ -29,7 +29,7 @@ class PaymentController extends Controller
      */
     public function index()
     {
-        $payments = Payment::latest()->paginate(10);
+        $payments = Payment::latest()->get();
         $wallets = PaymentWallet::all();
 
         $data = [

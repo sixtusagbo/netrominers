@@ -23,7 +23,6 @@
                             </thead>
                             <tbody>
                                 @forelse ($payments as $payment)
-                                    {{-- {{ dd($payment) }} --}}
                                     <tr>
                                         <td class="item">{{ $payment->user->username }}</td>
                                         <td class="item">{{ $payment->wallet->name }}
