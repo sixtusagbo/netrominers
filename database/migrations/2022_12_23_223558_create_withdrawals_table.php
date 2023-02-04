@@ -20,6 +20,7 @@ return new class extends Migration
             $table->decimal('amount');
             // ? 0- Pending, 1 - Confirmed
             $table->tinyInteger('status')->default(0)->comment('0-pending, 1-confirmed');
+            $table->string('wallet');
             $table->timestamps();
         });
     }

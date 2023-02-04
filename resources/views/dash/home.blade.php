@@ -68,13 +68,13 @@
                             </div>
                             <div class="d-sm-none">
                                 <h2 class="fw-extrabold h5">T. Withdrawal</h2>
-                                <h3 class="mb-1">@money($total_withdrawals)</h3>
+                                <h3 class="mb-1">@money(Auth::user()->withdrawals->sum->amount)</h3>
                             </div>
                         </div>
                         <div class="col-12 col-xl-7 px-xl-0">
                             <div class="d-none d-sm-block">
                                 <h2 class="h6 text-light-400 mb-0">T. Withdrawal</h2>
-                                <h3 class="fw-extrabold mb-2">@money($total_withdrawals)</h3>
+                                <h3 class="fw-extrabold mb-2">@money(Auth::user()->withdrawals->sum->amount)</h3>
                             </div>
                         </div>
                     </div>
@@ -257,7 +257,7 @@
                                                         d="M21,17h-1v-1c0-0.5527-0.4478-1-1-1s-1,0.4473-1,1v1h-1c-0.5522,0-1,0.4473-1,1s0.4478,1,1,1h1v1c0,0.5527,0.4478,1,1,1
                                               s1-0.4473,1-1v-1h1c0.5522,0,1-0.4473,1-1S21.5522,17,21,17z" />
                                                 </svg>
-                                                Email
+                                                Last Deposit
                                             </td>
                                             <td>
                                                 @money($last_deposit)
@@ -277,7 +277,7 @@
                                                 Pending Withdrawal
                                             </td>
                                             <td>
-                                                @money(Auth::user()->pending_withdrawals)
+                                                @money(Auth::user()->pending_withdrawals->sum->amount)
                                             </td>
                                         </tr>
                                         <!-- End of Item -->

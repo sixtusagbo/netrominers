@@ -61,8 +61,8 @@
                                     <td>
                                         <input id="btc_address" type="text"
                                             class="form-control @error('btc_address') is-invalid @enderror"
-                                            name="btc_address" value="{{ old('btc_address') }}" autocomplete="btc_address"
-                                            autofocus>
+                                            name="btc_address" value="{{ Auth::user()->btc_address }}"
+                                            autocomplete="btc_address" autofocus>
 
                                         @error('btc_address')
                                             <span class="invalid-feedback" role="alert">
@@ -76,7 +76,7 @@
                                     <td>
                                         <input id="usdt_address" type="text"
                                             class="form-control @error('usdt_address') is-invalid @enderror"
-                                            name="usdt_address" value="{{ old('usdt_address') }}"
+                                            name="usdt_address" value="{{ Auth::user()->usdt_address }}"
                                             autocomplete="usdt_address" autofocus>
 
                                         @error('usdt_address')

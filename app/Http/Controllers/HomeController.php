@@ -42,7 +42,6 @@ class HomeController extends Controller
             'last_deposit' => $last_deposit ? $last_deposit->amount : 0.00,
             'total_deposits' => $user->payments->where('status', '>', 0)->sum->amount,
             'last_withdrawal' => $last_withdrawal ? $last_withdrawal->amount : 0.00,
-            'total_withdrawals' => $user->withdrawals->where('status', '>', 0)->sum->amount,
         ];
 
         return view('dash.home', $data);
@@ -175,7 +174,11 @@ class HomeController extends Controller
      */
     public function withdraw()
     {
-        return view('dash.withdraw');
+        $data = [
+            'payment_wallets' => PaymentWallet::all(),
+        ];
+
+        return view('dash.withdraw', $data);
     }
 
     /**
@@ -189,7 +192,8 @@ class HomeController extends Controller
         // return $request;
 
         $values = $request->validate([
-            'amount' => 'required',
+            'amount' => ['required'],
+            'wallet' => ['required'],
         ]);
 
         $user = auth()->user();
@@ -197,6 +201,7 @@ class HomeController extends Controller
         $withdrawal = new Withdrawal();
         $withdrawal->user_id = $user->id;
         $withdrawal->amount = $values['amount'];
+        $withdrawal->wallet = $values['wallet'];
         $withdrawal->save();
 
         Notification::send($user, new WithdrawalCreatedNotification($withdrawal));

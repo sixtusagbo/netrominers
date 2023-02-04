@@ -1,10 +1,6 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="alert alert-info bg-light-info text-light-info" role="alert">
-        Remember to update payment status as completed when the duration has elapsed.
-    </div>
-
     <div class="row g-4 mb-4">
         <div class="col-12 col-lg-12">
             <div class="card border-0 shadow">
@@ -27,17 +23,14 @@
                             </thead>
                             <tbody>
                                 @forelse ($payments as $payment)
+                                    {{-- {{ dd($payment) }} --}}
                                     <tr>
                                         <td class="item">{{ $payment->user->username }}</td>
                                         <td class="item">{{ $payment->wallet->name }}
                                         </td>
                                         <td class="item">{{ $payment->plan->name }}</td>
                                         <td class="item">
-                                            @if ($payment->amount < 100)
-                                                {{ $payment->amount . ' BTC' }}
-                                            @else
-                                                @money($payment->amount)
-                                            @endif
+                                            @money($payment->amount)
                                         </td>
                                         <td>
                                             @switch($payment->status)
@@ -112,9 +105,7 @@
 
                                                             <div class="mb-3">
                                                                 <input type="text" class="form-control"
-                                                                    value="@if ($payment->amount < 100) {{ $payment->amount . ' BTC' }}
-                                                                @else {{ '$' . $payment->amount }} @endif"
-                                                                    readonly>
+                                                                    value="@money($payment->amount)" readonly>
                                                             </div>
                                                             <div class="mb-3">
                                                                 <select name="status" id="" class="form-control">

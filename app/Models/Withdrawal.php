@@ -14,6 +14,7 @@ class Withdrawal extends Model
         'amount',
         //? 0-pending, 1-approved
         'status',
+        'wallet',
     ];
 
     /**

@@ -6,7 +6,6 @@ use App\Models\Payment;
 use App\Models\PaymentWallet;
 use App\Models\User;
 use App\Notifications\DepositApprovedNotification;
-use App\Notifications\PlanCompletedNotification;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Notification;
@@ -55,10 +54,10 @@ class PaymentController extends Controller
         $payment = Payment::find($id);
         $user = User::find($payment->user->id);
 
-        if ($payment->status == 1) {
-            $payment->status = $request->input('status');
+        if ($request->input('status') == 1) {
+            $payment->status = 1;
             $payment->approved_at = Carbon::now();
-            $payment->update;
+            $payment->update();
             Notification::send($user, new DepositApprovedNotification($payment));
         }
 

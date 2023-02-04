@@ -51,11 +51,7 @@
                                 <tr>
                                     <th>Credit Amount:</th>
                                     <td>
-                                        @if ($plan->max_deposit == null)
-                                            {{ $amount }} BTC
-                                        @else
-                                            {{ '$' . $amount }}
-                                        @endif
+                                        @money($amount)
                                     </td>
                                 </tr>
                                 <tr>
@@ -65,11 +61,7 @@
                                 <tr>
                                     <th>Debit Amount:</th>
                                     <td>
-                                        @if ($plan->max_deposit == null)
-                                            {{ $amount }} BTC
-                                        @else
-                                            {{ '$' . $amount }}
-                                        @endif
+                                        @money($amount)
                                     </td>
                                 </tr>
                             </tbody>

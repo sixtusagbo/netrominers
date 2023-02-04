@@ -16,7 +16,7 @@
                         <!--//col-->
                         <div class="col-auto">
                             <h6 class="card-title">
-                                Earned Commission (@money(Auth::user()->referrals->count() * 10))
+                                Earned Commission (@money(Auth::user()->referrals->count() * 20))
                             </h6>
                         </div>
                         <!--//col-->
@@ -25,8 +25,8 @@
                 </div>
                 <!--//card-header-->
                 <div class="card-body p-2">
-                    <div class="table-responsive">
-                        <table class="table table-striped rounded">
+                    <div class="table-responsive rounded">
+                        <table class="table table-striped">
                             <thead class="thead-light">
                                 <tr>
                                     <th class="border-0 rounded-start">Name</th>

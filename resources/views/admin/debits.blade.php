@@ -16,8 +16,8 @@
                                 <tr>
                                     <th>Username</th>
                                     <th>Amount</th>
-                                    <th>BTC Address</th>
-                                    <th>ETH Address</th>
+                                    <th>Channel</th>
+                                    <th>Address</th>
                                     <th>Status</th>
                                     <th>Options</th>
                                 </tr>
@@ -29,11 +29,19 @@
                                         <td class="item">
                                             @money($withdrawal->amount)
                                         </td>
-                                        <td class="item">
-                                            {{ $withdrawal->user->btc_address ? $withdrawal->user->btc_address : 'Not set' }}
+                                        <td>
+                                            {{ $withdrawal->wallet }}
                                         </td>
                                         <td class="item">
-                                            {{ $withdrawal->user->usdt_address ? $withdrawal->user->usdt_address : 'Not set' }}
+                                            @switch($withdrawal->wallet)
+                                                @case('Bitcoin')
+                                                    {{ $withdrawal->user->btc_address }}
+                                                @break
+
+                                                @case('USDT')
+                                                    {{ $withdrawal->user->usdt_address }}
+                                                @break
+                                            @endswitch
                                         </td>
                                         <td>
                                             @switch($withdrawal->status)

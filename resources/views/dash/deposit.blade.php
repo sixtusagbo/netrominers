@@ -53,11 +53,7 @@
                                         <tr>
                                             <td>{{ $plan->name }}</td>
                                             <td>
-                                                @if ($plan->min_deposit == 1)
-                                                    1 BTC
-                                                @else
-                                                    @money($plan->min_deposit)
-                                                @endif
+                                                @money($plan->min_deposit)
                                                 -
                                                 @if ($plan->max_deposit == null)
                                                     Unlimited

@@ -34,14 +34,14 @@
                             </table>
 
                             @if ($currentUserPayments->where('plan_id', $plan->id)->where('status', '>', 0)->count() > 0)
-                                <div class="table-responsive">
-                                    <table class="table table-striped mb-0">
+                                <div class="table-responsive rounded">
+                                    <table class="table table-light table-striped mb-0">
                                         <thead>
                                             <tr>
                                                 <th class="border-0">DEPOSIT AMOUNT</th>
                                                 <th class="border-0">PAYMENT CHANNEL</th>
                                                 <th class="border-0">STATUS</th>
-                                                <th class="border-0">DATE</th>
+                                                <th class="border-0">APPROVED ON</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -55,21 +55,21 @@
                                                     <td>
                                                         @switch($payment->status)
                                                             @case(0)
-                                                                <span class="badge text-bg-warning">Pending</span>
+                                                                <span class="badge bg-warning">Pending</span>
                                                             @break
 
                                                             @case(1)
-                                                                <span class="badge text-bg-success">Running</span>
+                                                                <span class="badge bg-success">Running</span>
                                                             @break
 
                                                             @case(2)
-                                                                <span class="badge text-bg-secondary">Completed</span>
+                                                                <span class="badge bg-secondary">Completed</span>
                                                             @break
 
                                                             @default
                                                         @endswitch
                                                     </td>
-                                                    <td>{{ $payment->created_at->toDayDateTimeString() }}
+                                                    <td>{{ $payment->approved_at->toDayDateTimeString() }}
                                                     </td>
                                                 </tr>
                                             @endforeach

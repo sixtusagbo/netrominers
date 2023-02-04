@@ -5,7 +5,7 @@
 
      <div class="alert alert-secondary d-flex justify-content-between fs-5 p-2 px-3">
          <div>Account Balance (@money(Auth::user()->account_balance))</div>
-         <div>Pending Withdrawals (@money(Auth::user()->pending_withdrawals))</div>
+         <div>Pending Withdrawals (@money(Auth::user()->pending_withdrawals->sum->amount))</div>
      </div>
 
      <div class="row g-4 mb-4">
@@ -17,7 +17,7 @@
                              <thead>
                                  <tr>
                                      <th class="border-0">Processing</th>
-                                     <th class="border-0">Available</th>
+                                     <th class="border-0">Successful</th>
                                      <th class="border-0">Pending</th>
                                      <th class="border-0">Account</th>
                                  </tr>
@@ -28,8 +28,8 @@
                                              align="absmiddle" class="me-1">
                                          Bitcoin
                                      </td>
-                                     <td><b style="color:green">$0.00</b></td>
-                                     <td><b style="color:red">$0.00</b></td>
+                                     <td><b style="color:green">@money(Auth::user()->successful_withdrawals->where('wallet', 'Bitcoin')->sum->amount)</b></td>
+                                     <td><b style="color:red">@money(Auth::user()->pending_withdrawals->where('wallet', 'Bitcoin')->sum->amount)</b></td>
                                      <td><a href="{{ url('/edit_account') }}" class="btn btn-info">Edit</a></td>
                                  </tr>
                                  <tr>
@@ -37,22 +37,22 @@
                                              align="absmiddle">
                                          USDT (TRC-20)
                                      </td>
-                                     <td><b style="color:green">$0.00</b></td>
-                                     <td><b style="color:red">$0.00</b></td>
+                                     <td><b style="color:green">@money(Auth::user()->successful_withdrawals->where('wallet', 'USDT')->sum->amount)</b></td>
+                                     <td><b style="color:red">@money(Auth::user()->pending_withdrawals->where('wallet', 'USDT')->sum->amount)</b></td>
                                      <td><a href="{{ url('/edit_account') }}" class="btn btn-info">Edit</a></td>
                                  </tr>
                              </tbody>
                          </table>
 
-                         @if (Auth::user()->earnings == 0)
-                             <div class="text-info mt-3">You have no funds to withdraw</div>
-                         @else
+                         @if (Auth::user()->account_balance > 0)
                              <center>
                                  <a class="btn btn-primary mt-3" data-bs-toggle="modal" role="button"
                                      href="#createWithdrawalModal">
                                      Withdraw
                                  </a>
                              </center>
+                         @else
+                             <div class="text-info mt-3">You have no funds to withdraw</div>
                          @endif
                      </div>
                  </div>
@@ -70,7 +70,7 @@
                      <div class="card-header p-3">
                          <div class="row justify-content-between align-items-center">
                              <div class="col-auto">
-                                 <h4 class="card-title">Withdrawals</h4>
+                                 <h4 class="card-title">Withdrawal History</h4>
                              </div>
                              <!--//col-->
                          </div>
@@ -78,7 +78,7 @@
                      </div>
                      <!--//card-header-->
                      <div class="card-body p-3 p-lg-4">
-                         <div class="table-responsive">
+                         <div class="table-responsive rounded">
                              <table class="table table-striped mb-0">
                                  <thead>
                                      <tr>
@@ -96,11 +96,11 @@
                                              <td>
                                                  @switch($withdrawal->status)
                                                      @case(0)
-                                                         <span class="badge text-bg-warning">Pending</span>
+                                                         <span class="badge bg-warning">Pending</span>
                                                      @break
 
                                                      @case(1)
-                                                         <span class="badge text-bg-success">Approved</span>
+                                                         <span class="badge bg-success">Approved</span>
                                                      @break
 
                                                      @default
@@ -129,29 +129,53 @@
              <!--//row-->
          @endif
 
-         <!------------------ Create withdrawal request modal --------------------------------->
-         <div class="modal fade" id="createWithdrawalModal" tabindex="-1" role="dialog"
-             aria-labelledby="createWithdrawalModalLabel">
-             <div class="modal-dialog" role="document">
-                 <div class="modal-content">
-                     <div class="modal-header">
-                         <h4 class="modal-title" id="createWithdrawalModalLabel">Make withdrawal request</h4>
-                     </div>
-                     <div class="modal-body">
-                         {!! Form::open(['route' => 'withdrawals.store']) !!}
-                         <label for="amount" class="form-label">Enter
-                             amount</label>
-                         <input type="number" name="amount" {{ 'max=' . Auth::user()->earnings }} class="form-control"
-                             required>
-                         <br>
+         @if (Auth::user()->account_balance > 0)
+             @if (Auth::user()->btc_address == null || Auth::user()->usdt_address == null)
+                 <div class="alert alert-warning">Set your wallet addresses before you can withdraw!</div>
+             @else
+                 <!------------------ Create withdrawal request modal --------------------------------->
+                 <div class="modal fade" id="createWithdrawalModal" tabindex="-1" role="dialog"
+                     aria-labelledby="createWithdrawalModalLabel">
+                     <div class="modal-dialog" role="document">
+                         <div class="modal-content">
+                             <div class="modal-header">
+                                 <h4 class="modal-title" id="createWithdrawalModalLabel">Make withdrawal request</h4>
+                             </div>
+                             <div class="modal-body">
+                                 {!! Form::open(['route' => 'withdrawals.store']) !!}
 
-                         <div class="d-flex justify-content-center">
-                             <button type="button" class="btn btn-warning me-3" data-bs-dismiss="modal">Cancel</button>
-                             <button type="submit" class="btn btn-success">Save</button>
+                                 <div class="form-group mb-3">
+                                     <label for="amount" class="form-label">Enter
+                                         amount</label>
+                                     <input type="number" name="amount" {{ 'max=' . Auth::user()->account_balance }}
+                                         class="form-control" required>
+                                 </div>
+                                 <div class="form-group">
+                                     <label for="wallet" class="form-label">Wallet</label>
+                                     @forelse ($payment_wallets as $wallet)
+                                         <div class="form-group">
+                                             <input type="radio" name="wallet" value="{{ $wallet->name }}"
+                                                 @if ($wallet->id == 1) checked @endif>
+                                             {{ $wallet->name }} @if ($wallet->id != 1)
+                                                 ({{ $wallet->network }})
+                                             @endif
+                                         </div>
+                                     @empty
+                                         <div class="alert alert-warning" role="alert">
+                                             Admin please run your migrations!
+                                         </div>
+                                     @endforelse
+                                 </div>
+
+                                 <div class="d-flex justify-content-center">
+                                     <button type="button" class="btn btn-warning me-3" data-bs-dismiss="modal">Cancel</button>
+                                     <button type="submit" class="btn btn-success">Save</button>
+                                 </div>
+                                 {!! Form::close() !!}
+                             </div>
                          </div>
-                         {!! Form::close() !!}
                      </div>
                  </div>
-             </div>
-         </div>
+             @endif
+         @endif
      @endsection

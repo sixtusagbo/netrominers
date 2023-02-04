@@ -72,6 +72,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'account_balance',
         'earnings',
         'pending_withdrawals',
+        'successful_withdrawals',
     ];
 
     /**
@@ -91,10 +92,10 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function getAccountBalanceAttribute()
     {
-        $userPayments = $this->payments->where('status', '>', 0)->sum->amount;
-        $withdrawals = $this->payments->where('status', 1)->sum->amount;
+        $deposits = $this->payments->where('status', 2)->sum->amount;
+        $withdrawals = $this->withdrawals->sum->amount;
 
-        return $this->account_balance = (($userPayments + $this->earnings) - $withdrawals);
+        return $this->account_balance = (($deposits + $this->earnings) - $withdrawals);
     }
 
     /**
@@ -121,9 +122,18 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function getPendingWithdrawalsAttribute()
     {
-        return $this->pending_withdrawals = $this->withdrawals->where('status', 0)->sum->amount;
+        return $this->pending_withdrawals = $this->withdrawals->where('status', 0);
     }
 
+    /**
+     * Get the user's successful withdrawals.
+     *
+     * @return float
+     */
+    public function getSuccessfulWithdrawalsAttribute()
+    {
+        return $this->successful_withdrawals = $this->withdrawals->where('status', 1);
+    }
 
     /**
      * A user has a referrer.
