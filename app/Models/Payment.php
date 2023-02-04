@@ -9,6 +9,11 @@ class Payment extends Model
 {
     use HasFactory;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
     protected $fillable = [
         'user_id',
         'plan_id',
@@ -16,6 +21,18 @@ class Payment extends Model
         'amount',
         //? 0 - Pending, 1 - Approved(i.e running), 2 - Completed
         'status',
+        'approved_at',
+    ];
+
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = [
+        'created_at',
+        'updated_at',
+        'approved_at',
     ];
 
     /**

@@ -23,6 +23,7 @@ return new class extends Migration
             $table->foreign('plan_id')->references('id')->on('plans');
             $table->decimal('amount');
             $table->tinyInteger('status')->default(0)->comment('0-pending, 1-approved(i.e running), 2-completed');
+            $table->timestamp('approved_at');
             $table->timestamps();
         });
     }
