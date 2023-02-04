@@ -4,9 +4,9 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <!-- Primary Meta Tags -->
-    <title>{{ config('myglobals.app_name') }}</title>
+    <title>{{ config('myglobals.app_name') }} | Admin Panel</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="title" content="{{ config('myglobals.app_name') }}">
+    <meta name="title" content="{{ config('myglobals.app_name') }} | Admin Panel">
     <meta name="author" content="{{ config('myglobals.app_name') }}">
     <meta name="description" content="{{ config('myglobals.seo.description') }}">
     <meta name="keywords" content="{{ config('myglobals.seo.keywords') }}" />
@@ -153,6 +153,20 @@
                     </div>
                     <!-- Navbar links -->
                     <ul class="navbar-nav align-items-center">
+                        <li class="nav-item">
+                            <a href="{{ route('home') }}" class="nav-link text-dark btn btn-danger">
+                                <div class="media d-flex align-items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        fill="currentColor" class="bi bi-x-octagon-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M11.46.146A.5.5 0 0 0 11.107 0H4.893a.5.5 0 0 0-.353.146L.146 4.54A.5.5 0 0 0 0 4.893v6.214a.5.5 0 0 0 .146.353l4.394 4.394a.5.5 0 0 0 .353.146h6.214a.5.5 0 0 0 .353-.146l4.394-4.394a.5.5 0 0 0 .146-.353V4.893a.5.5 0 0 0-.146-.353L11.46.146zm-6.106 4.5L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708z" />
+                                    </svg>
+                                    <div class="media-body ms-2 text-dark align-items-center">
+                                        <span class="mb-0 font-small fw-bold text-gray-900">Exit</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
                         <li class="nav-item dropdown ms-lg-3">
                             <a class="nav-link dropdown-toggle pt-1 px-0" href="#" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
