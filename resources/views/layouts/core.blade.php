@@ -194,8 +194,10 @@
                 <h2>Latest Transactions</h2>
             </center>
             <center>
-
-                <iframe
+                <iframe class="btc_widget-sm"
+                    src="https://www.btcwidget.info/widget/liveTx/%23ffffff/%23ffa500/%23ffffff/%234682b4/%23ffffff/400/120/9"
+                    width="400" height="250" frameBorder="0" scrolling="no"></iframe>
+                <iframe class="btc_widget-md"
                     src="https://www.btcwidget.info/widget/liveTx/%23ffffff/%23ffffff/%23ffffff/%233289b4/%23ffffff/1000/1000/10"
                     width="1000" height="600" frameBorder="0" scrolling="no"></iframe>
             </center>
@@ -257,7 +259,8 @@
 
         <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
         </script>
-        <script src="/javascript/script.js"></script>
+
+        <script src="{{ asset('js/core.js') }}"></script>
 </body>
 
 </html>

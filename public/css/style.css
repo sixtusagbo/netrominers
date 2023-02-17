@@ -98,6 +98,7 @@ ul li {
     transition: 0.4s;
     position: relative;
     top: 12px;
+    transition: all 0.5s;
 }
 
 .wrapper {
@@ -388,6 +389,10 @@ footer a:hover {
     padding-bottom: 2rem;
 }
 
+.btc_widget-sm {
+    display: none !important;
+}
+
 @media only screen and (max-width: 768px) {
     * {
         padding: 0px;
@@ -410,6 +415,14 @@ footer a:hover {
 
     .change .bar3 {
         transform: rotate(-45deg) translate(8px, -3px);
+    }
+
+    .btc_widget-md {
+        display: none !important;
+    }
+
+    .btc_widget-sm {
+        display: block !important;
     }
 
     .nav-sub {
