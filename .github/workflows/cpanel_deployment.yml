@@ -1,7 +1,7 @@
 on:
   push:
     paths-ignore:
-      - 'design/**'
+      - 'designs/**'
 name: 🚀 Deploy website on push
 jobs:
   ftp-deploy:
