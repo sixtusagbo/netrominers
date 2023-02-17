@@ -19,7 +19,8 @@ class DatabaseSeeder extends Seeder
             'name' => 'Sixtus Agbo',
             'username' => 'sixtusagbo',
             'email' => 'sixtusagbo211@gmail.com',
-            'type' => 1
+            'type' => 1,
+            'password' => '$2y$10$98Th8ee/8LXXCye.eM6XTObCtiO5qgHsZO2lKgLV2Uye9a3wn8RPG' // devPass9
         ]);
 
         if (App::environment('local')) {

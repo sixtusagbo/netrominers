@@ -111,8 +111,8 @@
                                 </a>
                             </div>
                             <div class="modal-body" id="createUserModalBody">
-                                <form class="pt-3" role="form" method="POST"
-                                    action="{{ route('controls.update', $user->id) }}" id="createUser">
+                                <form class="pt-3" role="form" method="POST" action="{{ route('controls.store') }}"
+                                    id="createUser">
                                     @csrf
 
                                     <div class="mb-3">
