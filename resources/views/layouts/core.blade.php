@@ -71,10 +71,11 @@
         <a href="{{ route('login') }}"><button>Log in</button></a>
     </div>
     <div class="wrapper">
-        <div class="contanier">
-            <div class="boxs" id="text-carrier">
-                <h1 id="text"></h1>
-                <p>The most secure marketplace for buying and selling unique crpto assests.</p>
+        <div class="container">
+            <div class="boxs">
+                <p style="text-align: center">The most secure marketplace for buying and selling unique crpto
+                    assests.
+                </p>
                 <a href="{{ route('register') }}"><button>Get Started</button></a>
                 <a href="#plans"><button id="btn-explore">Explore Plans</button></a>
             </div>
@@ -87,7 +88,8 @@
         <div id="cirl" class="abot-holder"></div>
         <div id="about" class="abot-holder">
             <h1>WELCOME TO NETROMINERS</h1>
-            <p>We are Netrominers, a VN based company involved with trading in cryptocurrencies. Our company was founded
+            <p class="text-pad">We are Netrominers, a VN based company involved with trading in cryptocurrencies. Our
+                company was founded
                 by a
                 group of skilled analysts and experienced traders, to create a secure and highly profitable investment
                 opportunities. Our trading department is primarily focused on the trading of Cryptocurrencies such as
@@ -98,7 +100,7 @@
                 able to
                 consistently generate a high percentage of profits and thereby pay high interests to their investors.
             </p>
-            <p id="p-ara">Our success is secured by well-coordinated work of a big team of experts (economists,
+            <p id="text-pad">Our success is secured by well-coordinated work of a big team of experts (economists,
                 analysts,
                 traders) whose interaction leads to the efficient operation of the whole company. Cooperation with us
                 means new
@@ -236,6 +238,22 @@
                 );
             }
         </script>
+
+        <!--Start of Tawk.to Script-->
+        <script type="text/javascript">
+            var Tawk_API = Tawk_API || {},
+                Tawk_LoadStart = new Date();
+            (function() {
+                var s1 = document.createElement("script"),
+                    s0 = document.getElementsByTagName("script")[0];
+                s1.async = true;
+                s1.src = 'https://embed.tawk.to/62e1086454f06e12d88b91e5/1g8vghoir';
+                s1.charset = 'UTF-8';
+                s1.setAttribute('crossorigin', '*');
+                s0.parentNode.insertBefore(s1, s0);
+            })();
+        </script>
+        <!--End of Tawk.to Script-->
 
         <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
         </script>

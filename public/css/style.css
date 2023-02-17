@@ -107,16 +107,19 @@ ul li {
     background-size: cover;
 }
 
-.contanier {
+.container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    align-content: center;
+    justify-content: space-around;
+    align-items: center;
     padding-top: 100px;
+    text-align: center;
 }
 
 .boxs {
     margin: 5px;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
 }
 
 .boxs h1 {
@@ -127,7 +130,7 @@ ul li {
 }
 
 .boxs p {
-    font-size: 20px;
+    font-size: 40px;
     padding-top: 30px;
     padding-bottom: 30px;
     color: gray;
@@ -143,6 +146,7 @@ ul li {
     font-weight: 800;
     font-size: 15px;
     cursor: pointer;
+    margin: 2em auto;
 }
 
 .boxs button:hover {
@@ -200,8 +204,9 @@ ul li {
     color: gray;
 }
 
-#p-ara {
-    padding-top: 15px;
+.text-pad {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 .plan-holder {
@@ -375,6 +380,12 @@ footer a:hover {
 
 .padder {
     padding: 20px;
+}
+
+.example,
+.plan-holder {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 
 @media only screen and (max-width: 768px) {
