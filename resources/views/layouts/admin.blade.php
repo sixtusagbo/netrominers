@@ -267,8 +267,11 @@
 
     <script>
         $(document).ready(function() {
+            $.fn.dataTable.ext.errMode = 'none';
             if ($('.table').length) {
-                $('.table').DataTable();
+                $('.table').on('error.dt', function(e, settings, techNote, message) {
+                    console.log('[Error] DataTables: ', message);
+                }).DataTable();
             }
         });
     </script>
