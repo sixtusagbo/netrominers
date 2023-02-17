@@ -2,191 +2,244 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- Primary Meta Tags -->
     <title>{{ config('myglobals.app_name') }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="title" content="{{ config('myglobals.app_name') }}">
+    <meta name="author" content="{{ config('myglobals.app_name') }}">
+    <meta name="description" content="{{ config('myglobals.seo.description') }}">
+    <meta name="keywords" content="{{ config('myglobals.seo.keywords') }}" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ config('app.url') }}">
     <meta property="og:title" content="{{ config('myglobals.app_name') }}">
-    <meta property="og:description" content="Advance Crypto Mining Service.">
-    <meta property="og:image" content="{{ asset('images/logo.png') }}">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="{{ config('myglobals.app_name') }} Platform is a group company of 190, 000+ strong professionals and 5
-    mega data center’s parent feature with experience of over 15+ years in Data Center Industry
-    serving 32 million Customers and generating best returns for investors with high efficiency.">
-    <meta name="keywords" content="crypto, mining, service, bitcoin, ethereum">
+    <meta property="og:description" content="{{ config('myglobals.seo.description') }}">
+    <meta property="og:image" content="{{ asset('images/banner.png') }}">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ config('app.url') }}">
+    <meta property="twitter:title" content="{{ config('myglobals.app_name') }}">
+    <meta property="twitter:description" content="{{ config('myglobals.seo.description') }}">
+    <meta property="twitter:image" content="{{ asset('images/banner.png') }}">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ asset('images/favicon/site.webmanifest') }}">
+    <link rel="mask-icon" href="{{ asset('images/favicon/safari-pinned-tab.svg') }}" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Oswald:wght@200;300;400&display=swap"
-        rel="stylesheet">
-
-    <!-- CSS Libraries -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="{{ asset('js/lib/animate/animate.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('js/lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
-
-    <!-- My Stylesheets -->
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
-
-    <style>
-        html,
-        body {
-            overflow-x: hidden;
-            width: 100% !important;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 </head>
 
 <body>
-
-    @if (!Request::is('/'))
-        <!-- Top Bar Start -->
-        <div class="top-bar d-none d-md-block">
-        </div>
-        <!-- Top Bar End -->
-    @endif
-
-    <!-- Nav Bar Start -->
-    <div class="navbar navbar-expand-lg bg-dark navbar-dark">
-        <div class="container-fluid">
-            <a href="{{ url('/') }}" class="navbar-brand">
-                <img src="{{ asset('images/logo.png') }}" alt="" draggable="false">
-            </a>
-            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                <div class="navbar-nav ml-auto">
-                    <a href="{{ url('/') }}"
-                        class="nav-item nav-link @if (Request::is('/')) active @endif">Home</a>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Company
-                        </a>
-                        <div class="dropdown-menu custom-dropdown" aria-labelledby="navbarDropdown">
-
-                            <a class="dropdown-item @if (Request::is('about')) active @endif" id="about-us"
-                                href="{{ route('about') }}">About us</a>
-                            <a class="dropdown-item @if (Request::is('why_us')) active @endif" id="why-us"
-                                href="{{ route('why_us') }}">Why Choose us</a>
-
-                            <a class="dropdown-item @if (Request::is('forex_trading')) active @endif" id="forex_trading"
-                                href="{{ route('forex_trading') }}">Forex Trading</a>
-                            <a class="dropdown-item @if (Request::is('commitments')) active @endif" id="commitments"
-                                href="{{ route('commitments') }}">Commitments</a>
-                            <a class="dropdown-item @if (Request::is('stratagies')) active @endif" id="stratagies"
-                                href="{{ route('stratagies') }}">Strategies</a>
-                        </div>
+    <header class="header">
+        <div id="google_translate_element"></div>
+        <nav class="navigation">
+            <div class="header-divs">
+                <a href="{{ url('/') }}"><img src="{{ asset('images/logo.svg') }}" id="logo"></a>
+            </div>
+            <div class="header-divs" id="toper">
+                <ul class="nav-sub">
+                    <li class="shifter"><a href="#" id="link-colored">Home</a>
+                        <div id="line"></div>
                     </li>
-                    <li class="nav-item @if (Request::is('affiliate')) active @endif" id="affiliate">
-                        <a class="nav-link" href="{{ route('affiliate') }}">Affiliate</a>
-                    </li>
-
-                    <li class="nav-item @if (Request::is('faq')) active @endif" id="faq">
-                        <a class="nav-link" href="{{ route('faq') }}">FAQ</a>
-                    </li>
-                    <li class="nav-item @if (Request::is('contact')) active @endif" id="contact">
-                        <a class="nav-link" href="{{ route('contact') }}">Contact</a>
-                    </li>
-                    @auth
-                        <li class="nav-item">
-                            <a href="{{ route('home') }}" id="" class="nav-link">Dashboard</a>
-                        </li>
-                    @else
-                        <li class="nav-item">
-                            <a href="{{ route('login') }}" id="" class="nav-link">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('register') }}" class="nav-link">Register</a>
-
-                            <script src="//code.tidio.co/bqwkfaba7sy6a2zlvrdxiwbzmz0bsjmw.js" async></script>
-                        </li>
-                    @endauth
-                </div>
+                    <li class="shifter"><a href="#about">About</a></li>
+                    <li class="shifter"><a href="#plans">Plans</a></li>
+                    <li class="shifter"><a href="{{ route('register') }}">Register</a></li>
+                    <li><a href="{{ route('login') }}" id="hide-log">Log in</a></li>
+                </ul>
+            </div>
+            <div class="ham">
+                <span class="bar1"></span>
+                <span class="bar2"></span>
+                <span class="bar3"></span>
+            </div>
+            <div class="header-divs" id="shift-small"><a href="{{ route('login') }}" id="btn">
+                    <button>Log in</button>
+            </div>
+        </nav>
+    </header>
+    <div class="header-divs" id="btn" class="nav-sub">
+        <a href="{{ route('login') }}"><button>Log in</button></a>
+    </div>
+    <div class="wrapper">
+        <div class="contanier">
+            <div class="boxs" id="text-carrier">
+                <h1 id="text"></h1>
+                <p>The most secure marketplace for buying and selling unique crpto assests.</p>
+                <a href="{{ route('register') }}"><button>Get Started</button></a>
+                <a href="#plans"><button id="btn-explore">Explore Plans</button></a>
+            </div>
+            <div class="boxs">
+                <img src="{{ asset('images/illustrations/hero.png') }}" class="illustor">
             </div>
         </div>
     </div>
-    <!-- Nav Bar End -->
+    <div class="example">
+        <div id="cirl" class="abot-holder"></div>
+        <div id="about" class="abot-holder">
+            <h1>WELCOME TO NETROMINERS</h1>
+            <p>We are Netrominers, a VN based company involved with trading in cryptocurrencies. Our company was founded
+                by a
+                group of skilled analysts and experienced traders, to create a secure and highly profitable investment
+                opportunities. Our trading department is primarily focused on the trading of Cryptocurrencies such as
+                Bitcoin,
+                Bitcoin Cash, Ethereum and Litecoin. We help our clients earn money on the volatility of the
+                cryptocurrency
+                market. Due to the use of high frequency, medium-term and long-term trading strategies our company is
+                able to
+                consistently generate a high percentage of profits and thereby pay high interests to their investors.
+            </p>
+            <p id="p-ara">Our success is secured by well-coordinated work of a big team of experts (economists,
+                analysts,
+                traders) whose interaction leads to the efficient operation of the whole company. Cooperation with us
+                means new
+                opportunities in obtaining stable passive income, regardless of external factors. Investment security,
+                predictability of processes and predictability of profits are the three main advantages of our company
+                when it
+                comes to cooperation with potential investors based on our online resource.
 
-    @yield('content')
-
-    <!-- Footer Start -->
-    <div class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-7">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="footer-contact">
-                                <img src="{{ asset('images/logo.png') }}" alt="" class="w-50">
-                                <p>{{ config('myglobals.app_name') }} Platform is a group company of 190, 000+ strong
-                                    professionals
-                                    and 5
-                                    mega data center’s parent Cyfuture with experience of over 15+ years in Data Center
-                                    Industry
-                                    serving 32 million Customers and generating best returns for investors with high
-                                    efficiency.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="footer-link">
-                                <h2>Quick Links</h2>
-                                <a href="{{ route('affiliate') }}">Affiliate</a>
-                                <a href="{{ route('faq') }}">FAQ</a>
-                                <a href="{{ route('contact') }}">Contact</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-5">
-                    <div class="footer-link">
-                        <h2>Legal</h2>
-                        <a href="{{ route('security') }}">Security Information</a>
-                        <a href="{{ route('terms') }}">Terms &amp; Conditions</a>
-                        <div class="mt-3">
-                            <img src="{{ asset('images/dmca.png') }}" alt="DMCA.com Protection Status"
-                                width="100px">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container copyright">
-            <div class="row">
-                <div class="col-md-6">
-                    <p class="text-light">&copy; 2022 <a href="{{ url('/') }}">bit-fin.co</a> All Right
-                        Reserved</p>
-                </div>
-                <div class="col-md-6">
-                    <p class="text-light"><img src="{{ asset('images/envelope.png') }}" alt="">
-                        support@bit-fin.co</p>
-                </div>
-            </div>
+            </p>
         </div>
     </div>
-    <!-- Footer End -->
+    <div class="plan-holder" id="plans">
+        <div class="pl">
+            <h5>PLANS</h5>
+            <h1>Cloud pricing plan</h1>
+        </div>
+        <div class="plans">
+            @forelse ($plans as $plan)
+                <div class="plan-boxs">
+                    <h1 class="plan">{{ $plan->name }}</h1>
+                    <div class="plan-details">
+                        <h2>ROI: {{ $plan->return }}%</h2>
+                        <p class="profit-p">{{ $plan->return }}% <b>profit</b></p>
+                        <p class="profit-p"><b>After {{ $plan->mining_period / 24 }}
+                                Day(s)</b></p>
+                        <p>minimum input: @money($plan->min_deposit)</p>
+                        <p>Maximum input: @if ($plan->max_deposit == null)
+                                Unlimited
+                            @else
+                                @money($plan->max_deposit)
+                            @endif
+                        </p>
+                        <p>{{ config('myglobals.ref_worth') }} Referral bonus</p>
+                        <h3 class="plan-btn" onclick="window.location = '/deposit'">PURCHASE NOW <i
+                                class="fa fa-chevron-right" aria-hidden="true"></i></h3>
+                    </div>
 
-    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+                </div>
+            @empty
+                <div class="alert alert-warning" role="alert">
+                    Admin please run your migrations!
+                </div>
+            @endforelse
 
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="{{ asset('js/lib/easing/easing.min.js') }}"></script>
-    <script src="{{ asset('js/lib/owlcarousel/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('js/lib/waypoints/waypoints.min.js') }}"></script>
-    <script src="{{ asset('js/lib/counterup/counterup.min.js') }}"></script>
+        </div>
+        <div class="advat">
+            <div class="advat-divs" id="maker">
+            </div>
+            <div id="gif-text" class="advat-divs">
+                <div class="text-mover">
+                    <h1>Experienced team</h1>
+                    <p>We aim on creating risk-free investment environment for our investors. Safety of your investment
+                        will be
+                        our prime concern. Data-security and anti-theft protection features have been implemented to
+                        safeguard the
+                        information of all our investors and stakeholders. <strong>NETROMINERS</strong> is an authentic
+                        company with
+                        good accountability. Our website is very secure and guarantees safety of our investors against
+                        all frauds.
+                        We have incorporated robust content management system for advanced protection and sustaining
+                        fast processes.
+                        All the data of the company and its investors is encrypted and protected.</p>
+                </div>
+            </div>
+            <div id="gif-text" class="advat-divs">
+                <div class="text-mover">
+                    <h1>Steady income</h1>
+                    <p>Cryptocurrency Mining is done by specialized computers. The role of miners is to secure the
+                        network and to
+                        process every Bitcoin transaction. Here in <strong>Netrominers</strong> platform , we achieve
+                        this by
+                        solving a computational problems which allows us to chain together blocks of transactions. For
+                        this service,
+                        we are rewarded with newly-created Bitcoins and transaction fees. Mining is popular today and
+                        offers
+                        excellent opportunities to earn extra money. <strong>Netrominers</strong> has been the reliable
+                        address for
+                        competitively priced cryptominers. Because we only supply profitable products, our customer base
+                        are
+                        constantly increasing. We strive to keep our customers happy by offering quick delivery and at
+                        the best
+                        online prices. offering support after purchase speaks for itself.</p>
+                </div>
+            </div>
+            <div class="advat-divs" id="makers">
+            </div>
 
-    <!-- Contact Javascript File -->
-    <script src="{{ asset('js/mail/jqBootstrapValidation.min.js') }}"></script>
-    <script src="{{ asset('js/mail/contact.js') }}"></script>
+        </div>
+        <div class="all-boxs">
+            <center>
+                <h2>Latest Transactions</h2>
+            </center>
+            <center>
 
-    <!-- My Javascript -->
-    <script src="{{ mix('js/app.js') }}"></script>
+                <iframe
+                    src="https://www.btcwidget.info/widget/liveTx/%23ffffff/%23ffffff/%23ffffff/%233289b4/%23ffffff/1000/1000/10"
+                    width="1000" height="600" frameBorder="0" scrolling="no"></iframe>
+            </center>
+        </div>
+        <footer>
+            <div class="padder">
+                <div class="foot">
+                    <div class="footer-div">
+                        <a href="{{ url('/') }}"><img src="{{ asset('images/logo.svg') }}" id="logo"></a>
+                        <p>NETROMINERS is a group company of 190, 000+ strong professionals and 5 mega data center’s
+                            parent Cyfuture
+                            with experience of over 15+ years in Data Center Industry serving 32 million Customers and
+                            generating best
+                            returns for investors with high efficiency.</p>
+                    </div>
+                    <div class="footer-div">
+                        <h2>Quick-links</h2>
+                        <ul>
+                            <li><a href="{{ url('/') }}">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#plans">Plans</a></li>
+                            <li><a href="{{ route('register') }}">Register</a></li>
+                            <li><a href="{{ route('login') }}" id="hide-log">Log in</li>
+                        </ul>
+                    </div>
+                </div>
+                <hr>
+                <div class="copy">
+                    &copy;<p>2023 Netrominers All Right Reserved</p>
+                </div>
+            </div>
+        </footer>
+
+        <script type="text/javascript">
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement({
+                        pageLanguage: 'en'
+                    },
+                    'google_translate_element'
+                );
+            }
+        </script>
+
+        <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+        </script>
+        <script src="/javascript/script.js"></script>
 </body>
 
 </html>

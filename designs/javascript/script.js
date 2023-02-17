@@ -1,23 +1,17 @@
 const hamburger = document.querySelector(".ham");
 const navsub = document.querySelector(".nav-sub");
 hamburger.addEventListener('click', () => {
-hamburger.classList.toggle("change")
-navsub.classList.toggle("nav-change")
+  hamburger.classList.toggle("change")
+  navsub.classList.toggle("nav-change")
 });
 
-
- 
-
-
-
-
-var text ;
+var text;
 var i = 0;
 document.getElementsByClassName(".text");
 
 
 
-setInterval(function() {
+setInterval(function () {
   document.getElementById("text").innerHTML += text.substring(i, i + 1);
   i++;
   if (i > text.length) {
@@ -30,7 +24,6 @@ setInterval(function() {
 var text = "Together you can grow.";
 var i = 0;
 
-
 function writeText() {
   if (i <= text.length) {
     document.getElementById("text").innerHTML += text.charAt(i);
@@ -38,7 +31,7 @@ function writeText() {
     setTimeout(writeText, 100);
   }
   else {
-    setTimeout(function(){
+    setTimeout(function () {
       i = 0;
       document.getElementById("text").innerHTML = "";
       writeText();
