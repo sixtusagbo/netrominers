@@ -30,7 +30,8 @@
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon/favicon-32x32.png') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon/favicon-16x16.png') }}">
     <link rel="manifest" href="{{ asset('images/favicon/site.webmanifest') }}">
-    <meta name="msapplication-TileColor" content="#D44B25">
+    <link rel="mask-icon" href="{{ asset('images/favicon/safari-pinned-tab.svg') }}" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
 
     <!-- Sweet Alert -->
@@ -80,7 +81,7 @@
             <ul class="nav flex-column pt-3 pt-md-0">
                 <li class="nav-item">
                     <span class="sidebar-icon">
-                        <img src="{{ asset('images/brand/light.svg') }}" height="20" width="20" alt="logo">
+                        <img src="{{ asset('images/logo_icon.svg') }}" height="20" width="20" alt="logo">
                     </span>
                     <span class="mt-1 ms-1 sidebar-text">{{ config('myglobals.app_name') }}</span>
                 </li>
