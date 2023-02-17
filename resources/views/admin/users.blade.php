@@ -100,65 +100,6 @@
 
                 </div>
 
-                <!-- Create User Modal -->
-                <div class="modal fade" id="createUserModal" tabindex="-1" role="dialog" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title text-primary">Create User</h4>
-                                <a class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                    <i class="ti-close opacity-10 text-info"></i>
-                                </a>
-                            </div>
-                            <div class="modal-body" id="createUserModalBody">
-                                <form class="pt-3" role="form" method="POST" action="{{ route('controls.store') }}"
-                                    id="createUser">
-                                    @csrf
-
-                                    <div class="mb-3">
-                                        <label for="" class="form-label">Username</label>
-                                        <input type="text" class="form-control" value="{{ $user->username }}" readonly>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="" class="form-label">Full Name</label>
-                                        <input type="text" class="form-control" value="{{ $user->name }}" readonly>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="" class="form-label">Email address</label>
-                                        <input type="email" class="form-control" value="{{ $user->email }}" readonly>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="" class="form-label">BTC address</label>
-                                        <input type="email" class="form-control" value="{{ $user->email }}" readonly>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="" class="form-label">USDT address</label>
-                                        <input type="email" class="form-control" value="{{ $user->email }}" readonly>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="" class="form-label">Last Access</label>
-                                        <input type="text" class="form-control"
-                                            value="{{ $user->last_access ? $user->last_access->toFormattedDateString() : 'null' }}"
-                                            readonly>
-                                    </div>
-                                    <input type="hidden" name="_method" value="PUT">
-                            </div>
-                            <div class="modal-footer">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Cancel</button>
-                                        <button type="submit" class="btn btn-primary">
-                                            Save
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <!-- Create User -->
             </div>
         </div>
     </div>
