@@ -37,6 +37,14 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+    <style>
+        html,
+        body {
+            overflow-x: hidden;
+            width: 100% !important;
+        }
+    </style>
 </head>
 
 <body>

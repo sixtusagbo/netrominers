@@ -85,6 +85,7 @@ ul li {
     display: none;
     padding: 2px;
     cursor: pointer;
+    padding-right: 30px;
 }
 
 .bar1,
