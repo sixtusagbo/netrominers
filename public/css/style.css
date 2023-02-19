@@ -394,10 +394,32 @@ footer a:hover {
     display: none !important;
 }
 
+div.certificate {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.certificate img {
+    width: 700px;
+}
+
 @media only screen and (max-width: 768px) {
     * {
         padding: 0px;
         margin: 0px;
+    }
+
+    .wrapper,
+    .example,
+    .plan-holder,
+    .advat,
+    .certificate {
+        padding: 14px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .ham {
@@ -537,5 +559,9 @@ footer a:hover {
         height: 250px;
         margin: 0px;
         text-align: center;
+    }
+
+    div.certificate img {
+        width: 400px;
     }
 }

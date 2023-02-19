@@ -42,7 +42,6 @@ class CheckForCompletedPayments extends Command
                 if ($payment->approved_at->diffInHours() >= $payment->plan->mining_period) {
                     // Then set the status as completed
                     $payment->status = 2;
-                    $payment->approved_at = Carbon::now();
                     $payment->update;
 
                     // Notify the user
