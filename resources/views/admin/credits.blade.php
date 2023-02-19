@@ -136,7 +136,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <!--//Edit Payment-->
+                                        <!-- Edit Payment-->
                                     @endif
 
                                     <!--Delete Payment modal-->
@@ -175,7 +175,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!--//Delete Payment-->
+                                    <!-- Delete Payment-->
                                     @empty
                                         <tr>
                                             <td colspan="6">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -24,7 +25,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $users = User::where('type', '0')->get();
+        $users = User::latest()->where('type', '0')->get();
 
         $data = [
             'users' => $users,
@@ -41,7 +42,31 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        // TODO: Store newy created users
+        // return $request;
+
+        $data = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'username' => ['required', 'string', 'max:255', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'btc_address' => ['string'],
+            'usdt_address' => ['string'],
+        ]);
+
+        $user = User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+            'username' => $data['username'],
+            'btc_address' => $data['btc_address'] ?? null,
+            'usdt_address' => $data['usdt_address'] ?? null,
+            'referrer_id' => auth()->user()->id,
+        ]);
+
+        $message = 'User created successfully! ';
+        $message .= 'Login--> [Email: ' . $data['email'] . '] [Password: ' . $data['password'] . ']';
+
+        return redirect()->route('controls.index')->with('success', $message);
     }
 
     /**

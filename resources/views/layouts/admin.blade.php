@@ -271,7 +271,9 @@
             if ($('.table').length) {
                 $('.table').on('error.dt', function(e, settings, techNote, message) {
                     console.log('[Error] DataTables: ', message);
-                }).DataTable();
+                }).DataTable({
+                    'ordering': false,
+                });
             }
         });
     </script>

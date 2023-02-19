@@ -38,7 +38,7 @@
                                         </td>
                                     </tr>
 
-                                    <!-- Edit Wallet Model -->
+                                    <!-- Edit Wallet Modal -->
                                     <div class="modal fade" id="editWallet{{ $wallet->id }}" tabindex="-1" role="dialog"
                                         aria-hidden="true">
                                         <div class="modal-dialog">
@@ -81,7 +81,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!--//Edit Wallet-->
+                                    <!-- Edit Wallet -->
                                 @empty
                                     <div class="alert alert-warning" role="alert">
                                         Admin please run your migrations!

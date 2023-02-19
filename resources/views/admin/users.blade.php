@@ -40,13 +40,13 @@
                                                         d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z" />
                                                 </svg>
                                             </a>
-                                            <a href="{{ route('controls.edit', $user->id) }}" class="btn btn-purple">
+                                            {{-- <a href="{{ route('controls.edit', $user->id) }}" class="btn btn-purple">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                     fill="currentColor" class="bi bi-sliders2" viewBox="0 0 16 16">
                                                     <path fill-rule="evenodd"
                                                         d="M10.5 1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4H1.5a.5.5 0 0 1 0-1H10V1.5a.5.5 0 0 1 .5-.5ZM12 3.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Zm-6.5 2A.5.5 0 0 1 6 6v1.5h8.5a.5.5 0 0 1 0 1H6V10a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5ZM1 8a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2A.5.5 0 0 1 1 8Zm9.5 2a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V13H1.5a.5.5 0 0 1 0-1H10v-1.5a.5.5 0 0 1 .5-.5Zm1.5 2.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Z" />
                                                 </svg>
-                                            </a>
+                                            </a> --}}
                                         </td>
                                     </tr>
 
@@ -96,9 +96,76 @@
 
                 </div>
 
-                <!-- Create User -->
+                <!-- Create User Modal -->
+                <div class="modal fade" id="createUserModal" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title text-primary">Create User
+                                </h4>
+                                <a class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                    <i class="ti-close opacity-10 text-info"></i>
+                                </a>
+                            </div>
+                            <div class="modal-body" id="editWalletModalBody">
+                                <form class="pt-3" role="form" method="POST" action="{{ route('controls.store') }}"
+                                    id="editWallet">
+                                    @csrf
 
-                <!-- User -->
+                                    <!-- Full Name -->
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Full Name</label>
+                                        <input type="text" name="name" class="form-control" required>
+                                    </div>
+                                    <!-- Username -->
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Username</label>
+                                        <input type="text" name="username" class="form-control" required>
+                                    </div>
+                                    <!-- Email -->
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Email address</label>
+                                        <input type="name" name="email" class="form-control" required>
+                                    </div>
+                                    <!-- Password -->
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Password</label>
+                                        <input type="password" name="password" class="form-control" required>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Password</label>
+                                        <input type="password" name="password_confirmation" class="form-control"
+                                            required>
+                                    </div>
+                                    <!-- BTC Address -->
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">BTC Address</label>
+                                        <input type="text" name="btc_address" class="form-control">
+                                    </div>
+                                    <!-- USDT Address -->
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">USDT Address</label>
+                                        <input type="text" name="usdt_address" class="form-control">
+                                    </div>
+                            </div>
+                            <div class="modal-footer">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Cancel</button>
+                                        <button type="submit"
+                                            class="btn btn-primary btn-md font-weight-medium auth-form-btn">
+                                            Create User
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- Create User -->
             </div>
         </div>
     </div>
