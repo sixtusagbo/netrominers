@@ -16,7 +16,8 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
-        $schedule->command('payments:check')->twiceDaily(3, 15); // Run the task daily at 3am & 3pm
+        // Automatically check and approve payments
+        // $schedule->command('payments:check')->twiceDaily(3, 15); // Run the task daily at 3am & 3pm
     }
 
     /**
