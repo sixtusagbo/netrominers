@@ -6,24 +6,6 @@
     <!-- Primary Meta Tags -->
     <title>{{ config('myglobals.app_name') }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="title" content="{{ config('myglobals.app_name') }}">
-    <meta name="author" content="{{ config('myglobals.app_name') }}">
-    <meta name="description" content="{{ config('myglobals.seo.description') }}">
-    <meta name="keywords" content="{{ config('myglobals.seo.keywords') }}" />
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ config('app.url') }}">
-    <meta property="og:title" content="{{ config('myglobals.app_name') }}">
-    <meta property="og:description" content="{{ config('myglobals.seo.description') }}">
-    <meta property="og:image" content="{{ asset('images/logo.svg') }}">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="{{ config('app.url') }}">
-    <meta property="twitter:title" content="{{ config('myglobals.app_name') }}">
-    <meta property="twitter:description" content="{{ config('myglobals.seo.description') }}">
-    <meta property="twitter:image" content="{{ asset('images/logo.svg') }}">
 
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/favicon/apple-touch-icon.png') }}">

@@ -6,33 +6,9 @@
     <!-- Primary Meta Tags -->
     <title>{{ config('myglobals.app_name') }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="title" content="{{ config('myglobals.app_name') }}">
-    <meta name="author" content="{{ config('myglobals.app_name') }}">
-    <meta name="description" content="{{ config('myglobals.seo.description') }}">
-    <meta name="keywords" content="{{ config('myglobals.seo.keywords') }}" />
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ config('app.url') }}">
-    <meta property="og:title" content="{{ config('myglobals.app_name') }}">
-    <meta property="og:description" content="{{ config('myglobals.seo.description') }}">
-    <meta property="og:image" content="{{ asset('images/logo.svg') }}">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="{{ config('app.url') }}">
-    <meta property="twitter:title" content="{{ config('myglobals.app_name') }}">
-    <meta property="twitter:description" content="{{ config('myglobals.seo.description') }}">
-    <meta property="twitter:image" content="{{ asset('images/logo.svg') }}">
 
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/favicon/apple-touch-icon.png') }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon/favicon-32x32.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon/favicon-16x16.png') }}">
-    <link rel="manifest" href="{{ asset('images/favicon/site.webmanifest') }}">
-    <link rel="mask-icon" href="{{ asset('images/favicon/safari-pinned-tab.svg') }}" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
+    <link rel="icon" type="image/png" href="{{ asset('images/favicon/favicon-16x16.png') }}">
 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
