@@ -1,13 +1,11 @@
-name: Setup_Laravel
+name: Initial Laravel Setup
 
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
 jobs:
-  laravel-tests:
+  laravel-setup:
 
     runs-on: ubuntu-latest
 
