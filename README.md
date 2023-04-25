@@ -1,4 +1,5 @@
 # Netrominers
+[![🚀 Deploy website on push](https://github.com/sixtusagbo/netrominers/actions/workflows/cpanel_deployment.yml/badge.svg)](https://github.com/sixtusagbo/netrominers/actions/workflows/cpanel_deployment.yml)
 
 A cloud mining application
 
