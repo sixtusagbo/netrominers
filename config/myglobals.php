@@ -1,16 +1,16 @@
-<?php return array (
-  'app_name' => 'Netrominers',
-  'admin' => 
-  array (
+<?php return array(
+  'app_name' => 'Smart Protocol',
+  'admin' =>
+  array(
     'email' => NULL,
   ),
-  'socials' => 
-  array (
+  'socials' =>
+  array(
     'facebook' => NULL,
     'twitter' => NULL,
     'instagram' => NULL,
     'whatsapp' => NULL,
-    'email' => 'support@netrominers.com',
+    'email' => 'support@smartprotocol.cc',
     'youtube' => NULL,
   ),
   'currency' => '$',
@@ -18,8 +18,8 @@
   'withdrawal_charge' => '0.00',
   'min_investment' => '100.00',
   'min_withdrawal' => '20.00',
-  'seo' => 
-  array (
+  'seo' =>
+  array(
     'description' => 'We are Netrominers, a VN based company involved with trading in cryptocurrencies.',
     'keywords' => 'netro, netromine, netrominers, crypto mining',
   ),

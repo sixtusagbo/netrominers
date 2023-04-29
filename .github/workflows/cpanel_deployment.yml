@@ -1,7 +1,8 @@
 on:
   push:
     paths-ignore:
-      - 'designs/**'
+      - 'README.md'
+      - 'designs/'
 name: 🚀 Deploy website on push
 jobs:
   ftp-deploy:

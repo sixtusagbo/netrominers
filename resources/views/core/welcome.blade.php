@@ -18,8 +18,8 @@
     <div class="example">
         <div id="cirl" class="abot-holder"></div>
         <div id="about" class="abot-holder">
-            <h1>WELCOME TO NETROMINERS</h1>
-            <p class="text-pad">We are Netrominers, a VN based company involved with trading in cryptocurrencies. Our
+            <h1>WELCOME TO SMART PROTOCOL</h1>
+            <p class="text-pad">We are Smart Protocol, a VN based company involved with trading in cryptocurrencies. Our
                 company was founded
                 by a
                 group of skilled analysts and experienced traders, to create a secure and highly profitable investment
@@ -88,7 +88,7 @@
                     will be
                     our prime concern. Data-security and anti-theft protection features have been implemented to
                     safeguard the
-                    information of all our investors and stakeholders. <strong>NETROMINERS</strong> is an authentic
+                    information of all our investors and stakeholders. <strong>Smart Protocol</strong> is an authentic
                     company with
                     good accountability. Our website is very secure and guarantees safety of our investors against
                     all frauds.
@@ -102,13 +102,13 @@
                 <h1>Steady income</h1>
                 <p>Cryptocurrency Mining is done by specialized computers. The role of miners is to secure the
                     network and to
-                    process every Bitcoin transaction. Here in <strong>Netrominers</strong> platform , we achieve
+                    process every Bitcoin transaction. Here in <strong>Smart Protocol</strong> platform , we achieve
                     this by
                     solving a computational problems which allows us to chain together blocks of transactions. For
                     this service,
                     we are rewarded with newly-created Bitcoins and transaction fees. Mining is popular today and
                     offers
-                    excellent opportunities to earn extra money. <strong>Netrominers</strong> has been the reliable
+                    excellent opportunities to earn extra money. <strong>Smart Protocol</strong> has been the reliable
                     address for
                     competitively priced cryptominers. Because we only supply profitable products, our customer base
                     are

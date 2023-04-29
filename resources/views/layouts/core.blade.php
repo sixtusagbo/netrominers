@@ -62,7 +62,7 @@
             <div class="foot">
                 <div class="footer-div">
                     <a href="{{ url('/') }}"><img src="{{ asset('images/logo.svg') }}" id="logo"></a>
-                    <p>NETROMINERS is a group company of 190, 000+ strong professionals and 5 mega data center’s
+                    <p>Smart Protocol is a group company of 190, 000+ strong professionals and 5 mega data center’s
                         parent Cyfuture
                         with experience of over 15+ years in Data Center Industry serving 32 million Customers and
                         generating best
@@ -82,7 +82,7 @@
             </div>
             <hr>
             <div class="copy">
-                &copy;<p>2023 Netrominers All Right Reserved</p>
+                &copy;<p>2023 Smart Protocol. All Right Reserved.</p>
             </div>
         </div>
     </footer>
