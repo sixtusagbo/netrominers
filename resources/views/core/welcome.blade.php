@@ -4,7 +4,7 @@
     <div class="wrapper">
         <div class="container">
             <div class="boxs">
-                <p style="text-align: center">The most secure marketplace for buying and selling unique crpto
+                <p style="text-align: center">The most secure marketplace for buying and selling unique crypto
                     assests.
                 </p>
                 <a href="{{ route('register') }}"><button>Get Started</button></a>
