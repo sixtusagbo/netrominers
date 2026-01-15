@@ -117,7 +117,7 @@ class CoreController extends Controller
             'message' => 'required',
         ]);
 
-        Notification::route('mail', config('myglobals.admin.email', 'mail.mirolic@gmail.com'))->notify($values);
+        Notification::route('mail', config('myglobals.admin.email', 'admin@example.com'))->notify($values);
 
         return response('Okay, Message sent');
     }
